@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Hub Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+</head>
+<body>
+    <h2>Location Hub Tester</h2>
+
+    <div>
+        <label>JWT Token:</label><br>
+        <input id="token" style="width:600px" placeholder="Paste your Bearer token here (without 'Bearer ')" />
+    </div>
+    <br>
+
+    <button onclick="connect()">Connect</button>
+    <button onclick="disconnect()">Disconnect</button>
+    <br><br>
+
+    <div>
+        <input id="groupId" placeholder="Group ID (GUID)" style="width:300px" />
+        <button onclick="joinGroup()">Join Group Session</button>
+    </div>
+    <br>
+    <div>
+        <input id="targetUserId" placeholder="Friend User ID (GUID)" style="width:300px" />
+        <button onclick="joinPrivate()">Join Private Session</button>
+    </div>
+    <br>
+    <div>
+        <input id="lat" placeholder="Lat e.g. 28.6139" style="width:150px" />
+        <input id="lng" placeholder="Lng e.g. 77.2090" style="width:150px" />
+        <button onclick="sendLocation()">Send Location</button>
+    </div>
+    <br>
+    <button onclick="leaveSession()">Leave Session</button>
+
+    <br><br>
+    <h3>Log:</h3>
+    <div id="log" style="border:1px solid #ccc; padding:10px; height:300px; overflow-y:auto; font-family:monospace; font-size:13px;"></div>
+
+    <script>
+        let connection = null;
+
+        function log(msg, color = 'black') {
+            const div = document.getElementById('log');
+            div.innerHTML += `<div style="color:${color}">[${new Date().toLocaleTimeString()}] ${msg}</div>`;
+            div.scrollTop = div.scrollHeight;
+        }
+
+        async function connect() {
+            const token = document.getElementById('token').value.trim();
+            connection = new signalR.HubConnectionBuilder()
+                .withUrl(`https://localhost:7150/hubs/location?access_token=${token}`)
+                .withAutomaticReconnect()
+                .build();
+
+            // Listen for events from server
+            connection.on("LocationUpdate", (data) => {
+                log(`📍 LocationUpdate from ${data.userId}: lat=${data.lat}, lng=${data.lng}, speed=${data.speed}`, 'blue');
+            });
+            connection.on("UserJoined", (userId) => {
+                log(`✅ UserJoined: ${userId}`, 'green');
+            });
+            connection.on("UserLeft", (userId) => {
+                log(`❌ UserLeft: ${userId}`, 'red');
+            });
+            connection.on("SessionLeft", (msg) => {
+                log(`🚪 SessionLeft: ${msg}`, 'orange');
+            });
+            connection.on("Error", (msg) => {
+                log(`⚠️ Error: ${msg}`, 'red');
+            });
+
+            try {
+                await connection.start();
+                log("🟢 Connected! Connection ID: " + connection.connectionId, 'green');
+            } catch (err) {
+                log("🔴 Connection failed: " + err, 'red');
+            }
+        }
+
+        async function disconnect() {
+            if (connection) {
+                await connection.stop();
+                log("🔴 Disconnected", 'red');
+            }
+        }
+
+        async function joinGroup() {
+            const groupId = document.getElementById('groupId').value.trim();
+            await connection.invoke("JoinGroupSession", groupId);
+            log(`Invoked JoinGroupSession(${groupId})`);
+        }
+
+        async function joinPrivate() {
+            const targetUserId = document.getElementById('targetUserId').value.trim();
+            await connection.invoke("JoinPrivateSession", targetUserId);
+            log(`Invoked JoinPrivateSession(${targetUserId})`);
+        }
+
+        async function sendLocation() {
+            const lat = parseFloat(document.getElementById('lat').value);
+            const lng = parseFloat(document.getElementById('lng').value);
+            await connection.invoke("SendLocation", {
+                userId: "00000000-0000-0000-0000-000000000000",
+                userName: "Test User",
+                userImageUrl: null,
+                lat: lat,
+                lng: lng,
+                accuracy: 5.0,
+                speed: 10.0,
+                timestamp: new Date().toISOString()
+            });
+            log(`Sent location: lat=${lat}, lng=${lng}`);
+        }
+
+        async function leaveSession() {
+            await connection.invoke("LeaveSession");
+            log("Invoked LeaveSession");
+        }
+    </script>
+</body>
+</html>
