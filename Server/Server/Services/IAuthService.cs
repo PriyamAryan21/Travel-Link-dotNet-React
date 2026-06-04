@@ -1,11 +1,13 @@
-﻿using Server.DTOs.Auth;
+﻿using Server.Common;
+using Server.DTOs.Auth;
 
 namespace Server.Services
 {
         public interface IAuthService
         {
-            Task<AuthResponseDto?> RegisterAsync(RegisterDto dto);
-            Task<AuthResponseDto?> LoginAsync(LoginDto dto);
+            Task<ServiceResult<AuthResponseDto>> RegisterAsync(RegisterDto dto);
+            Task<ServiceResult<AuthResponseDto>> LoginAsync(LoginDto dto);
+            Task<ServiceResult<AuthResponseDto>> RefreshTokenAsync(RefreshTokenRequestDto dto);
         }
     
 }

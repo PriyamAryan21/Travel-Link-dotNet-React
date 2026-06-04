@@ -3,28 +3,208 @@
   "WorkspaceRootPath": "F:\\Projects\\TravelLink\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\itinerarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\itinerarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\autogenerateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\autogenerateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\users\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\users\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\location\\locationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\location\\locationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\suggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\suggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\reviewsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\reviewsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itineraryresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itineraryresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itineraryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itineraryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itinerarydaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itinerarydaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\groupitinerarystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\groupitinerarystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iitineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iitineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\generateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\generateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\droppedsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\droppedsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\createitineraryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\createitineraryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\addsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\addsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\groupmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\groupmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\frienddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\frienddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\usertouserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\usertouserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\groupanalyticsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\groupanalyticsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensesplitinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensesplitinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensesplitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensesplitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\createexpensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\createexpensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\balancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\balancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\refreshtokenrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\refreshtokenrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\friendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\friendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\itinerarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\itinerarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\ifriendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\ifriendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\expensecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\expensecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\common\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\common\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itineraryresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itineraryresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\expenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\expenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iitineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iitineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,36 +215,8 @@
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\itineraryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\expensecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\expensecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\autogenerateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\autogenerateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\createitineraryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\createitineraryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itineraryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itineraryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\suggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\suggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\common\\itinerarycategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,48 +231,12 @@
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\generateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\generateitinerarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\itineraryday.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\itineraryday.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\itineraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\itineraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\droppedsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\droppedsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\itinerarydaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\itinerarydaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\reviewsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\reviewsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\itinerary\\addsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\itinerary\\addsuggestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\placesuggestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,128 +255,16 @@
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\wwwroot\\test-location.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\location\\locationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\location\\locationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\hubs\\locationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\hubs\\locationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\friendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\friendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\ifriendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\ifriendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\expenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\expenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iexpenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iexpenseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\groupanalyticsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\groupanalyticsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\frienddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\frienddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\usertouserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\usertouserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensesplitinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensesplitinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\expensesplitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\expensesplitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\createexpensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\createexpensedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\expenses\\balancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\expenses\\balancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\models\\entities\\expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\models\\entities\\expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\users\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\users\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\groups\\groupmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\groups\\groupmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\friends\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\friends\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|solutionrelative:server\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE2ADE7-D360-48F4-9EAA-AE6C026EFBD3}|Server\\Server.csproj|f:\\projects\\travellink\\server\\server\\migrations\\20260525022633_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -282,58 +286,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GroupItineraryStatusDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "Title": "AutoGenerateItineraryDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T13:06:47.388Z",
+              "WhenOpened": "2026-05-30T17:20:36.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ItineraryController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ItineraryController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\ItineraryController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ItineraryController.cs",
-              "RelativeToolTip": "Server\\Controllers\\ItineraryController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAkwB0AAAAAAAAAAAAAAA==",
+              "Title": "FriendService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\FriendService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\FriendService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\FriendService.cs",
+              "RelativeToolTip": "Server\\Services\\FriendService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAmwCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T13:39:19.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IItineraryService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IItineraryService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IItineraryService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IItineraryService.cs",
-              "RelativeToolTip": "Server\\Services\\IItineraryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAwwBEAAABuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T11:14:57.095Z",
+              "WhenOpened": "2026-05-25T09:32:59.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ItineraryService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ItineraryService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\ItineraryService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ItineraryService.cs",
-              "RelativeToolTip": "Server\\Services\\ItineraryService.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAMwFsAAABPAAAAAAAAAA==",
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\GroupService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\GroupService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\GroupService.cs",
+              "RelativeToolTip": "Server\\Services\\GroupService.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAlwEoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T11:36:53.011Z",
+              "WhenOpened": "2026-05-25T16:35:34.986Z",
               "EditorCaption": ""
             },
             {
@@ -343,284 +334,139 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ItineraryResultDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwA4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:43:24.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ExpenseController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ExpenseController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\ExpenseController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ExpenseController.cs",
-              "RelativeToolTip": "Server\\Controllers\\ExpenseController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAEwEgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T19:24:22.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\UserController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Server\\Controllers\\UserController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAswDkAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T13:18:15.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AutoGenerateItineraryDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA5wBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T17:20:36.082Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Server\\Data\\AppDbContext.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Server\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAUwEUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T01:42:38.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ItineraryRequest.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryRequest.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryRequest.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryRequest.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryRequest.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA9wBIAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T15:52:09.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ServiceResult.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ServiceResult.cs",
-              "RelativeDocumentMoniker": "Server\\Common\\ServiceResult.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ServiceResult.cs",
-              "RelativeToolTip": "Server\\Common\\ServiceResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T09:57:20.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CreateItineraryRequestDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:41:37.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "User.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\User.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\User.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\User.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-03T14:36:31.813Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ItineraryItemDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:42:55.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "SuggestionDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\SuggestionDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\SuggestionDto.cs",
               "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\SuggestionDto.cs",
               "RelativeToolTip": "Server\\DTOs\\Itinerary\\SuggestionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T16:42:39.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ItineraryCategories.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ItineraryCategories.cs",
-              "RelativeDocumentMoniker": "Server\\Common\\ItineraryCategories.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ItineraryCategories.cs",
-              "RelativeToolTip": "Server\\Common\\ItineraryCategories.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UserProfileDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Users\\UserProfileDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Users\\UserProfileDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Users\\UserProfileDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Users\\UserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T14:06:06.656Z"
+              "WhenOpened": "2026-05-26T13:16:38.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ItineraryDayDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "LocationUpdateDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Location\\LocationUpdateDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Location\\LocationUpdateDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Location\\LocationUpdateDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Location\\LocationUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:43:09.748Z"
+              "WhenOpened": "2026-05-27T11:31:15.684Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Program.cs",
-              "RelativeDocumentMoniker": "Server\\Program.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Program.cs",
-              "RelativeToolTip": "Server\\Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAqwCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T02:14:02.551Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GenerateItineraryDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:42:27.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "GeneratedItinerary.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\GeneratedItinerary.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\GeneratedItinerary.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\GeneratedItinerary.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\GeneratedItinerary.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:05:35.21Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Group.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Group.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\Group.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Group.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\Group.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T20:19:53.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ItineraryDay.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryDay.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryDay.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryDay.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryDay.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:06:24.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ItineraryItem.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryItem.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryItem.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryItem.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryItem.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:09:26.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\appsettings.json",
-              "RelativeDocumentMoniker": "Server\\appsettings.json",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\appsettings.json",
-              "RelativeToolTip": "Server\\appsettings.json",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-25T02:13:19.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "DroppedSuggestionDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:50:52.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ImageService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ImageService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\ImageService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ImageService.cs",
-              "RelativeToolTip": "Server\\Services\\ImageService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAiwCEAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T13:02:32.657Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 6,
               "Title": "ReviewSuggestionDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ReviewSuggestionDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ReviewSuggestionDto.cs",
               "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ReviewSuggestionDto.cs",
               "RelativeToolTip": "Server\\DTOs\\Itinerary\\ReviewSuggestionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T16:42:10.501Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 7,
+              "Title": "ItineraryResultDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryResultDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:43:24.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ItineraryItemDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryItemDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:42:55.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ItineraryDayDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\ItineraryDayDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:43:09.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GroupItineraryStatusDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\GroupItineraryStatusDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T13:06:47.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GenerateItineraryDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\GenerateItineraryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:42:27.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DroppedSuggestionDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\DroppedSuggestionDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:50:52.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateItineraryRequestDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Itinerary\\CreateItineraryRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:41:37.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "AddSuggestionDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Itinerary\\AddSuggestionDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Itinerary\\AddSuggestionDto.cs",
@@ -632,379 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IImageService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IImageService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IImageService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IImageService.cs",
-              "RelativeToolTip": "Server\\Services\\IImageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T13:02:16.016Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Server.csproj",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Server.csproj",
-              "RelativeDocumentMoniker": "Server\\Server.csproj",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Server.csproj",
-              "RelativeToolTip": "Server\\Server.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-27T10:10:26.539Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "PlaceSuggestion.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\PlaceSuggestion.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\PlaceSuggestion.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\PlaceSuggestion.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\PlaceSuggestion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T15:58:33.433Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "ExpenseSplit.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ExpenseSplit.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ExpenseSplit.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ExpenseSplit.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\ExpenseSplit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T20:43:40.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "SuggestionVote.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\SuggestionVote.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\SuggestionVote.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\SuggestionVote.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\SuggestionVote.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T16:03:38.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "test-location.html",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\wwwroot\\test-location.html",
-              "RelativeDocumentMoniker": "Server\\wwwroot\\test-location.html",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\wwwroot\\test-location.html",
-              "RelativeToolTip": "Server\\wwwroot\\test-location.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-05-27T12:20:39.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "LocationUpdateDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Location\\LocationUpdateDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Location\\LocationUpdateDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Location\\LocationUpdateDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Location\\LocationUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T11:31:15.684Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "FriendService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\FriendService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\FriendService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\FriendService.cs",
-              "RelativeToolTip": "Server\\Services\\FriendService.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAowG4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:32:59.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "GroupController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\GroupController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\GroupController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\GroupController.cs",
-              "RelativeToolTip": "Server\\Controllers\\GroupController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T16:36:12.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "FriendController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\FriendController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\FriendController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\FriendController.cs",
-              "RelativeToolTip": "Server\\Controllers\\FriendController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAgwDwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:33:28.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "IFriendService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IFriendService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IFriendService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IFriendService.cs",
-              "RelativeToolTip": "Server\\Services\\IFriendService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:32:19.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "LocationHub.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Hubs\\LocationHub.cs",
-              "RelativeDocumentMoniker": "Server\\Hubs\\LocationHub.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Hubs\\LocationHub.cs",
-              "RelativeToolTip": "Server\\Hubs\\LocationHub.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA1wCoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T11:33:51.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "ExpenseService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ExpenseService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\ExpenseService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ExpenseService.cs",
-              "RelativeToolTip": "Server\\Services\\ExpenseService.cs",
-              "ViewState": "AgIAAGsBAAAAAAAAAAAowIIBAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T16:48:27.766Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "IExpenseService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IExpenseService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IExpenseService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IExpenseService.cs",
-              "RelativeToolTip": "Server\\Services\\IExpenseService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T16:40:33.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ExpenseDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:13:14.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "GroupAnalyticsDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:13:55.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "FriendDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Friends\\FriendDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Friends\\FriendDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:31:59.675Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "UserToUserDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\UserToUserDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\UserToUserDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\UserToUserDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\UserToUserDto.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:14:16.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "ExpenseSplitInputDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:11:40.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "ExpenseSplitDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:12:55.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "CreateExpenseDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:09:12.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "BalanceDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\BalanceDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\BalanceDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\BalanceDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Expenses\\BalanceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:13:34.6Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "Expense.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Expense.cs",
-              "RelativeDocumentMoniker": "Server\\Models\\Entities\\Expense.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Expense.cs",
-              "RelativeToolTip": "Server\\Models\\Entities\\Expense.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T20:29:07.859Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "GroupService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\GroupService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\GroupService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\GroupService.cs",
-              "RelativeToolTip": "Server\\Services\\GroupService.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAcwIgAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T16:35:34.986Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "UserProfileDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Users\\UserProfileDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Users\\UserProfileDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Users\\UserProfileDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Users\\UserProfileDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T13:16:38.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "FriendRequestDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendRequestDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Friends\\FriendRequestDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendRequestDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Friends\\FriendRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:31:27.349Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\AuthController.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Server\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwCIAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T03:09:32.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "IGroupService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IGroupService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IGroupService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IGroupService.cs",
-              "RelativeToolTip": "Server\\Services\\IGroupService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T16:35:21.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "CreateGroupDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\CreateGroupDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Groups\\CreateGroupDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\CreateGroupDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Groups\\CreateGroupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T16:33:11.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\AuthService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\AuthService.cs",
-              "RelativeToolTip": "Server\\Services\\AuthService.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAuwEsAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T02:50:29.504Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "GroupDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\GroupDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Groups\\GroupDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\GroupDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Groups\\GroupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T16:34:56.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 15,
               "Title": "GroupMemberDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\GroupMemberDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Groups\\GroupMemberDto.cs",
@@ -1016,19 +490,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Server\\Services\\IAuthService.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Server\\Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "GroupDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\GroupDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Groups\\GroupDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\GroupDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Groups\\GroupDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T02:48:54.489Z"
+              "WhenOpened": "2026-05-25T16:34:56.092Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 17,
+              "Title": "CreateGroupDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\CreateGroupDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Groups\\CreateGroupDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Groups\\CreateGroupDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Groups\\CreateGroupDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T16:33:11.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "SendFriendRequestDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\SendFriendRequestDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Friends\\SendFriendRequestDto.cs",
@@ -1040,31 +526,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "AuthResponseDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\AuthResponseDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\AuthResponseDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\AuthResponseDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Auth\\AuthResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "FriendRequestDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendRequestDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Friends\\FriendRequestDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendRequestDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Friends\\FriendRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T02:47:39.796Z"
+              "WhenOpened": "2026-05-25T09:31:27.349Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\LoginDto.cs",
-              "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\LoginDto.cs",
-              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\LoginDto.cs",
-              "RelativeToolTip": "Server\\DTOs\\Auth\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "FriendDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Friends\\FriendDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Friends\\FriendDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Friends\\FriendDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T02:47:13.428Z"
+              "WhenOpened": "2026-05-25T09:31:59.675Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 21,
+              "Title": "UserToUserDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\UserToUserDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\UserToUserDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\UserToUserDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\UserToUserDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA/wAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:14:16.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GroupAnalyticsDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\GroupAnalyticsDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAADwvwoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:13:55.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ExpenseSplitInputDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseSplitInputDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:11:40.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ExpenseSplitDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseSplitDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:12:55.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ExpenseDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\ExpenseDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\ExpenseDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\ExpenseDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwBAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:13:14.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CreateExpenseDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\CreateExpenseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:09:12.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BalanceDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\BalanceDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Expenses\\BalanceDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Expenses\\BalanceDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Expenses\\BalanceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T14:13:34.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\RegisterDto.cs",
               "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\RegisterDto.cs",
@@ -1076,7 +646,451 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "RefreshTokenRequestDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\RefreshTokenRequestDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\RefreshTokenRequestDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\RefreshTokenRequestDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Auth\\RefreshTokenRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T11:02:54.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AuthResponseDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\AuthResponseDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\AuthResponseDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\AuthResponseDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Auth\\AuthResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T02:47:39.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeDocumentMoniker": "Server\\DTOs\\Auth\\LoginDto.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeToolTip": "Server\\DTOs\\Auth\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T02:47:13.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\UserController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Server\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwB0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T13:18:15.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FriendController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\FriendController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\FriendController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\FriendController.cs",
+              "RelativeToolTip": "Server\\Controllers\\FriendController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAuwD0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T09:33:28.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ItineraryController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ItineraryController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\ItineraryController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ItineraryController.cs",
+              "RelativeToolTip": "Server\\Controllers\\ItineraryController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAkwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T13:39:19.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "GroupController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\GroupController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\GroupController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\GroupController.cs",
+              "RelativeToolTip": "Server\\Controllers\\GroupController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowDIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T16:36:12.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IImageService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IImageService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IImageService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IImageService.cs",
+              "RelativeToolTip": "Server\\Services\\IImageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T13:02:16.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ImageService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\ImageService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ImageService.cs",
+              "RelativeToolTip": "Server\\Services\\ImageService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwCsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T13:02:32.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "IGroupService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IGroupService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IGroupService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IGroupService.cs",
+              "RelativeToolTip": "Server\\Services\\IGroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T16:35:21.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Server\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T03:09:32.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "IFriendService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IFriendService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IFriendService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IFriendService.cs",
+              "RelativeToolTip": "Server\\Services\\IFriendService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T09:32:19.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ExpenseController.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ExpenseController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\ExpenseController.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Controllers\\ExpenseController.cs",
+              "RelativeToolTip": "Server\\Controllers\\ExpenseController.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAADwv1cAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T19:24:22.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\AuthService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\AuthService.cs",
+              "RelativeToolTip": "Server\\Services\\AuthService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wDEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T02:50:29.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\User.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T14:36:31.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IAuthService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Server\\Services\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T02:48:54.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ItineraryService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ItineraryService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\ItineraryService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ItineraryService.cs",
+              "RelativeToolTip": "Server\\Services\\ItineraryService.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAgwHgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T11:36:53.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\appsettings.json",
+              "RelativeDocumentMoniker": "Server\\appsettings.json",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\appsettings.json",
+              "RelativeToolTip": "Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-25T02:13:19.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ServiceResult.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ServiceResult.cs",
+              "RelativeDocumentMoniker": "Server\\Common\\ServiceResult.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ServiceResult.cs",
+              "RelativeToolTip": "Server\\Common\\ServiceResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T09:57:20.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ExpenseService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ExpenseService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\ExpenseService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\ExpenseService.cs",
+              "RelativeToolTip": "Server\\Services\\ExpenseService.cs",
+              "ViewState": "AgIAAFYBAAAAAAAAAAAowGMBAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T16:48:27.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "Server\\Program.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Program.cs",
+              "RelativeToolTip": "Server\\Program.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAqwEwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T02:14:02.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "IItineraryService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IItineraryService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IItineraryService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IItineraryService.cs",
+              "RelativeToolTip": "Server\\Services\\IItineraryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwBEAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T11:14:57.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Server\\Data\\AppDbContext.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Server\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAUwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T01:42:38.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "ItineraryRequest.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryRequest.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryRequest.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryRequest.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryRequest.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA9wBIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T15:52:09.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ItineraryCategories.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ItineraryCategories.cs",
+              "RelativeDocumentMoniker": "Server\\Common\\ItineraryCategories.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Common\\ItineraryCategories.cs",
+              "RelativeToolTip": "Server\\Common\\ItineraryCategories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T14:06:06.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "GeneratedItinerary.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\GeneratedItinerary.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\GeneratedItinerary.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\GeneratedItinerary.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\GeneratedItinerary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:05:35.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Group.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Group.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\Group.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Group.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\Group.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T20:19:53.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "ItineraryDay.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryDay.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryDay.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryDay.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryDay.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:06:24.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "ItineraryItem.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryItem.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ItineraryItem.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ItineraryItem.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\ItineraryItem.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:09:26.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Server.csproj",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Server.csproj",
+              "RelativeDocumentMoniker": "Server\\Server.csproj",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Server.csproj",
+              "RelativeToolTip": "Server\\Server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-27T10:10:26.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "PlaceSuggestion.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\PlaceSuggestion.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\PlaceSuggestion.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\PlaceSuggestion.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\PlaceSuggestion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T15:58:33.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "ExpenseSplit.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ExpenseSplit.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\ExpenseSplit.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\ExpenseSplit.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\ExpenseSplit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T20:43:40.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "SuggestionVote.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\SuggestionVote.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\SuggestionVote.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\SuggestionVote.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\SuggestionVote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T16:03:38.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "test-location.html",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\wwwroot\\test-location.html",
+              "RelativeDocumentMoniker": "Server\\wwwroot\\test-location.html",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\wwwroot\\test-location.html",
+              "RelativeToolTip": "Server\\wwwroot\\test-location.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-05-27T12:20:39.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "LocationHub.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Hubs\\LocationHub.cs",
+              "RelativeDocumentMoniker": "Server\\Hubs\\LocationHub.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Hubs\\LocationHub.cs",
+              "RelativeToolTip": "Server\\Hubs\\LocationHub.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA1wCoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T11:33:51.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "IExpenseService.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IExpenseService.cs",
+              "RelativeDocumentMoniker": "Server\\Services\\IExpenseService.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\IExpenseService.cs",
+              "RelativeToolTip": "Server\\Services\\IExpenseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T16:40:33.971Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 65,
+              "Title": "Expense.cs",
+              "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Expense.cs",
+              "RelativeDocumentMoniker": "Server\\Models\\Entities\\Expense.cs",
+              "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\Expense.cs",
+              "RelativeToolTip": "Server\\Models\\Entities\\Expense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T20:29:07.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
               "Title": "20260525022633_InitialCreate.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Migrations\\20260525022633_InitialCreate.cs",
               "RelativeDocumentMoniker": "Server\\Migrations\\20260525022633_InitialCreate.cs",
@@ -1088,7 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "GroupMember.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\GroupMember.cs",
               "RelativeDocumentMoniker": "Server\\Models\\Entities\\GroupMember.cs",
@@ -1100,7 +1114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "FriendRequest.cs",
               "DocumentMoniker": "F:\\Projects\\TravelLink\\Server\\Server\\Models\\Entities\\FriendRequest.cs",
               "RelativeDocumentMoniker": "Server\\Models\\Entities\\FriendRequest.cs",

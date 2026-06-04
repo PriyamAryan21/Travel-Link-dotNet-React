@@ -7,6 +7,6 @@
         public string SenderName { get; set; } = string.Empty;
         public string SenderEmail { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
-        public DateTime SentAt { get; set; }
+        public DateTime SentAt { get; set; }    
     }
 }

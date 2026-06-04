@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Server.Common;
 using Server.Data;
 using Server.DTOs.Groups;
 using Server.Models.Entities;
@@ -13,16 +14,16 @@ namespace Server.Services
             _db = db;
         }
 
-        public async Task<bool> AddMemberAsync(Guid groupId, Guid requesterId, Guid newMemberId)
+        public async Task<ServiceResult<bool>> AddMemberAsync(Guid groupId, Guid requesterId, Guid newMemberId)
         {
             var requester = await _db.GroupMembers
                 .FirstOrDefaultAsync(m => m.GroupId == groupId && m.UserId == requesterId);
-            if (requester == null || requester.Role != "Admin") return false;
+            if (requester == null || requester.Role != "Admin") return ServiceResult<bool>.Fail("You are not authorized to add members.");
 
             var alreadyMember = await _db.GroupMembers
                 .AnyAsync(m => m.GroupId == groupId && m.UserId == newMemberId);
 
-            if(alreadyMember) return false;
+            if(alreadyMember) return ServiceResult<bool>.Fail("User is already a member of the group.");
 
             _db.GroupMembers.Add(new GroupMember
             {
@@ -32,10 +33,10 @@ namespace Server.Services
             });
 
             await _db.SaveChangesAsync();
-            return true;
+            return ServiceResult<bool>.Ok(true);
         }
 
-        public async Task<GroupDto> CreateGroupAsync(Guid userId, CreateGroupDto dto)
+        public async Task<ServiceResult<GroupDto>> CreateGroupAsync(Guid userId, CreateGroupDto dto)
         {
             var group = new Group
             {
@@ -67,15 +68,16 @@ namespace Server.Services
 
             await _db.SaveChangesAsync();
 
-            return await GetGroupByIdAsync(group.Id, userId) ?? throw new Exception("Group creation failed");
+            var result = await GetGroupByIdAsync(group.Id, userId) ?? throw new Exception("Group creation failed");
+            return ServiceResult<GroupDto>.Ok(result.Data!);
         }
 
-        public async Task<GroupDto?> GetGroupByIdAsync(Guid groupId, Guid userId)
+        public async Task<ServiceResult<GroupDto?>> GetGroupByIdAsync(Guid groupId, Guid userId)
         {
             var isMember = await _db.GroupMembers
                 .AnyAsync(m => m.GroupId == groupId && m.UserId == userId);
             
-            if(!isMember) return null;
+            if(!isMember) return ServiceResult<GroupDto?>.Fail("You are not a member of this group.");
 
             var group = await _db.Groups
                 .Include(g => g.CreatedBy)
@@ -83,27 +85,28 @@ namespace Server.Services
                 .ThenInclude(m => m.User)
                 .FirstOrDefaultAsync(g => g.Id == groupId);
             
-            return group == null ? null : MapToDto(group);
+            return group == null ? ServiceResult<GroupDto?>.Fail("Group not found.") : ServiceResult<GroupDto?>.Ok(MapToDto(group));
         }
 
-        public async Task<List<GroupDto>> GetMyGroupAsync(Guid userId)
+        public async Task<ServiceResult<List<GroupDto>>> GetMyGroupAsync(Guid userId)
         {
-            return await _db.Groups
+            var result = await _db.Groups
                 .Where(g => g.Members.Any(m => m.UserId == userId))
                 .Include(g => g.CreatedBy)
                 .Include(g => g.Members).ThenInclude(m => m.User)
                 .Select(g => MapToDto(g))
                 .ToListAsync();
+            return ServiceResult<List<GroupDto>>.Ok(result);
         }
 
 
 
-        public async Task<bool> LeaveGroupAsync(Guid groupId, Guid userId)
+        public async Task<ServiceResult<bool>> LeaveGroupAsync(Guid groupId, Guid userId)
         {
             var member = await _db.GroupMembers
                 .FirstOrDefaultAsync(m => m.GroupId == groupId && m.UserId == userId);
 
-            if(member == null) return false;
+            if(member == null) return ServiceResult<bool>.Fail("You are not a member of this group.");
 
             if(member.Role == "Admin")
             {
@@ -137,26 +140,26 @@ namespace Server.Services
             }
 
             await _db.SaveChangesAsync();
-            return true;
+            return ServiceResult<bool>.Ok(true);
         }
 
-        public async Task<bool> RemoveMemberAsync(Guid groupId, Guid requesterId, Guid targetUserId)
+        public async Task<ServiceResult<bool>> RemoveMemberAsync(Guid groupId, Guid requesterId, Guid targetUserId)
         {
             var requester = await _db.GroupMembers
                 .FirstOrDefaultAsync(m => m.GroupId == groupId && m.UserId == requesterId);
 
-            if(requester == null || requester.Role != "Admin") return false;
+            if(requester == null || requester.Role != "Admin") return ServiceResult<bool>.Fail("You are not an admin of this group.");
 
-            if(requesterId == targetUserId) return false;
+            if(requesterId == targetUserId) return ServiceResult<bool>.Fail("You cannot remove yourself.");
 
             var target = await _db.GroupMembers
                 .FirstOrDefaultAsync(m => m.GroupId == groupId && m.UserId == targetUserId);
 
-            if(target == null) return false;
+            if(target == null) return ServiceResult<bool>.Fail("Target user is not a member of this group.");
 
             _db.GroupMembers.Remove(target);
             await _db.SaveChangesAsync();
-            return true;
+            return ServiceResult<bool>.Ok(true);
         }
 
         private static GroupDto MapToDto(Group g) => new GroupDto

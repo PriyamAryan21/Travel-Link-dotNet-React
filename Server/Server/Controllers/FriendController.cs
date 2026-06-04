@@ -25,9 +25,9 @@ namespace Server.Controllers
         [HttpPost("send")]
         public async Task<IActionResult> SendRequest([FromBody] SendFriendRequestDto dto)
         {
-            var (success, message) = await _friendService.SendRequestAsync(GetCurrentUserId(), dto);
+            var response = await _friendService.SendRequestAsync(GetCurrentUserId(), dto);
 
-            return success ? Ok(new { message }) : BadRequest(new { message });
+            return response.Success ? Ok(response) : BadRequest(response);
         }
 
         [HttpPost("respond/{requestId}")]
@@ -38,36 +38,32 @@ namespace Server.Controllers
                 return BadRequest(new { message = "Invalid action. Use 'accept' or 'reject'." });
             }
 
-            var (success, message) = await _friendService.RespondToRequestAsync(requestId, GetCurrentUserId(), action);
+            var response = await _friendService.RespondToRequestAsync(requestId, GetCurrentUserId(), action);
 
-            return success ? Ok(new { message }) : BadRequest(new { message });
+            return response.Success ? Ok(response) : BadRequest(response);
         }
 
         [HttpGet("pending")]
         public async Task<IActionResult> GetPendingRequests()
         {
-            var requests = await _friendService.GetPendingRequestsAsync(GetCurrentUserId());
-            return Ok(requests);
+            var response = await _friendService.GetPendingRequestsAsync(GetCurrentUserId());
+            return response.Success ? Ok(response) : BadRequest(response);
         }
 
         [HttpGet("list")]
         public async Task<IActionResult> GetFriends()
         {
-            var friends = await _friendService.GetFriendsAsync(GetCurrentUserId());
-            return Ok(friends);
+            var response = await _friendService.GetFriendsAsync(GetCurrentUserId());
+            return response.Success ? Ok(response) : BadRequest(response);
         }
 
 
         [HttpDelete("unfriend/{targetUserId:guid}")]
         public async Task<IActionResult> Unfriend(Guid targetUserId)
         {
-            var result = await _friendService.UnfriendAsync(GetCurrentUserId(), targetUserId);
+            var response = await _friendService.UnfriendAsync(GetCurrentUserId(), targetUserId);
 
-            if (!result.Success)
-            {
-                return BadRequest(new { message = result.Message });
-            }
-            return Ok(new { message = result.Message });
+            return response.Success ? Ok(response) : BadRequest(response);
         }
     }
 }

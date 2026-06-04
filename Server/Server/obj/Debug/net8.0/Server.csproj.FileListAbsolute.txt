@@ -149,4 +149,5 @@ F:\Projects\TravelLink\Server\Server\bin\Debug\net8.0\BCrypt-Net-Next.dll
 F:\Projects\TravelLink\Server\Server\bin\Debug\net8.0\CloudinaryDotNet.dll
 F:\Projects\TravelLink\Server\Server\bin\Debug\net8.0\Newtonsoft.Json.dll
 F:\Projects\TravelLink\Server\Server\bin\Debug\net8.0\Server.staticwebassets.runtime.json
+F:\Projects\TravelLink\Server\Server\obj\Debug\net8.0\Server.sourcelink.json
 F:\Projects\TravelLink\Server\Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

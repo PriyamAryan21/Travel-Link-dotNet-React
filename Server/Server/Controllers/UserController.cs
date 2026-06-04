@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Server.Common;
 using Server.Data;
 using Server.DTOs.Users;
 using Server.Services;
@@ -27,15 +28,23 @@ namespace Server.Controllers
         {
             var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
             var user = await _db.Users.FindAsync(userId);
-
-            if (user == null) return NotFound();
-            return Ok(new UserProfileDto
+            var result = new ServiceResult<UserProfileDto>();
+            if (user == null)
+            {
+                result.Success = false;
+                result.Message = "User not found";
+                return NotFound(result);
+            }
+            var data = new UserProfileDto
             {
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
                 ImageUrl = user.ImageUrl
-            });
+            };
+            result.Success = true;
+            result.Data = data;
+            return Ok(result);
         }
 
 
@@ -52,10 +61,11 @@ namespace Server.Controllers
 
             if (!string.IsNullOrEmpty(user.ImageUrl)) await _imageService.DeleteImageAsync(user.ImageUrl);
 
-            var url = await _imageService.UploadImageAsync(file, "users");
-            user.ImageUrl = url;
+            var response = await _imageService.UploadImageAsync(file, "users");
+            user.ImageUrl = response.Data;
             await _db.SaveChangesAsync();
-            return Ok(new { imageUrl = url });
+            var result = new ServiceResult<object> { Data = new { imageUrl = user.ImageUrl } };
+            return Ok(result);
         }
     }
 }

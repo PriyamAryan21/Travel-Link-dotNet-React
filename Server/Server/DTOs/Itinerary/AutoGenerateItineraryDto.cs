@@ -14,6 +14,6 @@
         public bool? IsRental { get; set; }
         public decimal? DailyRentalCostPerVehicle { get; set; }
         public decimal? DailyFuelCostPerVehicle { get; set; }
-        public string? Note { get; set; }   // ← the only addition
+        public string? Note { get; set; }
     }
 }

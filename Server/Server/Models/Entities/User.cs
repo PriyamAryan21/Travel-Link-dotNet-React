@@ -8,7 +8,9 @@
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow; 
         public string? ImageUrl { get; set; }
-        
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiryTime { get; set; }
+
         public ICollection<GroupMember> GroupMemberships { get; set; } = new List<GroupMember>();
         public ICollection<FriendRequest> SentFriendRequests { get; set; } = new List<FriendRequest>();
         public ICollection<FriendRequest> ReceivedFriendRequests { get; set; } = new List<FriendRequest>();

@@ -23,8 +23,8 @@ namespace Server.Controllers
         public async Task<IActionResult> CreateExpense([FromBody] CreateExpenseDto dto)
         {
             var result = await _expenseService.AddExpenseAsync(GetUserId(), dto);
-            if (!result.Success) return BadRequest(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return BadRequest(result);
+            return Ok(result);
         }
 
 
@@ -32,8 +32,8 @@ namespace Server.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _expenseService.GetExpenseByIdAsync(id, GetUserId());
-            if (!result.Success) return NotFound(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return NotFound(result);
+            return Ok(result);
         }
 
 
@@ -41,8 +41,8 @@ namespace Server.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _expenseService.DeleteExpenseAsync(id, GetUserId());
-            if (!result.Success) return BadRequest(new {message = result.Message});
-            return Ok("Expense deleted");
+            if (!result.Success) return BadRequest(result);
+            return Ok(result);
         }
 
 
@@ -50,8 +50,8 @@ namespace Server.Controllers
         public async Task<IActionResult> GetGroupExpenses(Guid groupId)
         {
             var result = await _expenseService.GetGroupExpenseAsync(groupId, GetUserId());
-            if (!result.Success) return NotFound(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return NotFound(result);
+            return Ok(result);
         }
 
 
@@ -59,8 +59,8 @@ namespace Server.Controllers
         public async Task<IActionResult> GetGroupBalances(Guid groupId)
         {
             var result = await _expenseService.GetGroupBalanceAsync(groupId, GetUserId());
-            if (!result.Success) return NotFound(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return NotFound(result);
+            return Ok(result);
 
         }
 
@@ -68,16 +68,16 @@ namespace Server.Controllers
         public async Task<IActionResult> GetGroupAnalytics(Guid groupId)
         {
             var result = await _expenseService.GetGroupAnalyticAsync(groupId, GetUserId());
-            if (!result.Success) return NotFound(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return NotFound(result);
+            return Ok(result);
         }
 
         [HttpPut("split/{splitId:guid}/pay")]
         public async Task<IActionResult> MarkSplitAsPaid(Guid splitId)
         {
             var result = await _expenseService.MarkSplitAsPaidAsync(splitId, GetUserId());
-            if (!result.Success) return BadRequest(new { message = result.Message });
-            return Ok("Split marked as paid");
+            if (!result.Success) return BadRequest(result);
+            return Ok(result);
         }
 
 
@@ -85,8 +85,8 @@ namespace Server.Controllers
         public async Task<IActionResult> GetUserToUserSummary(Guid userId)
         {
             var result = await _expenseService.GetUserToUserSummaryAsync(userId, GetUserId());
-            if (!result.Success) return NotFound(new { message = result.Message});
-            return Ok(result.Data);
+            if (!result.Success) return NotFound(result);
+            return Ok(result);
         }
     }
 }

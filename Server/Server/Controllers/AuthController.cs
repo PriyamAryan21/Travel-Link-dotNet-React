@@ -19,9 +19,9 @@ namespace Server.Controllers
         public async Task<IActionResult> Register(RegisterDto dto)
         {
             var result = await _authService.RegisterAsync(dto);
-            if (result == null)
+            if (!result.Success)
             {
-                return BadRequest("Email already in use");
+                return BadRequest(result);
             }
             return Ok(result);
         }
@@ -30,12 +30,22 @@ namespace Server.Controllers
         public async Task<IActionResult> Login(LoginDto dto)
         {
             var result = await _authService.LoginAsync(dto);
-            if (result == null)
+            if (!result.Success)
             {
-                return BadRequest("Invalid email or password");
+                return BadRequest(result);
             }
             return Ok(result);
+        }
 
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshToken(RefreshTokenRequestDto dto)
+        {
+            var result = await _authService.RefreshTokenAsync(dto);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
     }
 }

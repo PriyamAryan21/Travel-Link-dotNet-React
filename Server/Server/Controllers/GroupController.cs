@@ -29,49 +29,51 @@ namespace Server.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] CreateGroupDto dto)
         {
-            var group = await _groupService.CreateGroupAsync(GetUserId(), dto);
-            return Ok(group);
+            var response = await _groupService.CreateGroupAsync(GetUserId(), dto);
+            if (!response.Success) return BadRequest(response);
+            return Ok(response);
         }
 
         [HttpGet("my")]
         public async Task<IActionResult> GetMyGroups()
         {
-            var groups = await _groupService.GetMyGroupAsync(GetUserId());
-            return Ok(groups);
+            var response = await _groupService.GetMyGroupAsync(GetUserId());
+            if(!response.Success) return BadRequest(response);
+            return Ok(response);
         }
 
         [HttpGet("{id:guid}")]
         public async Task<ActionResult> GetById(Guid id)
         {
-            var group = await _groupService.GetGroupByIdAsync(id, GetUserId());
-            if (group == null) return NotFound("Group not found or access denied");
+            var response = await _groupService.GetGroupByIdAsync(id, GetUserId());
+            if (!response.Success) return NotFound(response);
 
-            return Ok(group);
+            return Ok(response);
         }
 
         [HttpPost("{id:guid}/add-member")]
         public async Task<ActionResult> AddMember(Guid id, [FromBody] Guid memberId)
         {
-            var result = await _groupService.AddMemberAsync(id, GetUserId(), memberId);
+            var response = await _groupService.AddMemberAsync(id, GetUserId(), memberId);
 
-            if (!result) return BadRequest("Could not add member. You may not be admin, or user is already a member");
-            return Ok("Member added");
+            if (!response.Success) return BadRequest(response);
+            return Ok(response);
         }
 
         [HttpDelete("{id:guid}/leave")]
         public async Task<IActionResult> Leave(Guid id)
         {
-            var result = await _groupService.LeaveGroupAsync(id, GetUserId());
-            if (!result) return BadRequest("Could not leave group.");
-            return Ok("Left the group.");
+            var response = await _groupService.LeaveGroupAsync(id, GetUserId());
+            if (!response.Success) return BadRequest(response);
+            return Ok(response);
         }
 
         [HttpDelete("{id:guid}/remove-member")]
         public async Task<IActionResult> RemoveMember(Guid id, [FromBody] Guid targetUserId)
         {
-            var result = await _groupService.RemoveMemberAsync(id, GetUserId(), targetUserId);
-            if (!result) return BadRequest("Could not remove member. Admins only.");
-            return Ok("Member Removed");
+            var response = await _groupService.RemoveMemberAsync(id, GetUserId(), targetUserId);
+            if (!response.Success) return BadRequest(response);
+            return Ok(response);
         }
 
         [HttpPost("{id:guid}/cover")]
@@ -83,17 +85,17 @@ namespace Server.Controllers
                 .Include(g => g.Members)
                 .FirstOrDefaultAsync(g => g.Id == id);
 
-            if (group == null) return NotFound();
+            if (group == null) return NotFound("Group not found");
 
             var isAdmin = group.Members.Any(m => m.UserId == userId && m.Role == "Admin");
-            if (!isAdmin) return Forbid();
+            if (!isAdmin) return Forbid("You are not an admin of this group.");
 
             if (!string.IsNullOrEmpty(group.CoverImageUrl)) await _imageService.DeleteImageAsync(group.CoverImageUrl);
 
-            var imageUrl = await _imageService.UploadImageAsync(file, "groups");
-            group.CoverImageUrl = imageUrl;
+            var response = await _imageService.UploadImageAsync(file, "groups");
+            group.CoverImageUrl = response.Data;
             await _db.SaveChangesAsync();
-            return Ok(new {coverImageUrl = imageUrl });    
+            return Ok(new {coverImageUrl = group.CoverImageUrl });    
         }
     }
 }

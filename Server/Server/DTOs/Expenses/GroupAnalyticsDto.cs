@@ -9,7 +9,6 @@
         public List<CategoryBreakdownDto> CategoryBreakdown { get; set; } = new();
         public List<MemberContributionDto> MemberContributions { get; set; } = new();
         public List<BalanceDto> Balances { get; set; } = new();
-
         public class CategoryBreakdownDto
         {
             public string Category { get; set; } = string.Empty;

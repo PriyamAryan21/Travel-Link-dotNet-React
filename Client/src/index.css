@@ -1,53 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --font-outfit: 'Outfit', sans-serif;
-  }
-
-  body {
-    font-family: var(--font-outfit);
-    @apply bg-[#0b0f19] text-slate-100 antialiased overflow-x-hidden;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.3) 0, transparent 50%),
-      radial-gradient(at 50% 0%, rgba(14, 165, 233, 0.05) 0, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0, transparent 50%);
-    background-attachment: fixed;
-  }
+/* ── Custom Design Tokens ──────────────────────────────── */
+@theme {
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-primary-light: #a5b4fc;
+    --color-surface: #0f172a;
+    --color-surface-light: #1e293b;
+    --color-surface-card: #1e293b;
+    --color-border: #334155;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-danger: #ef4444;
+    --color-success: #22c55e;
+    --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-/* Premium Glassmorphism & Custom scrollbar utilities */
-@layer utilities {
-  .glass-card {
-    @apply bg-slate-900/40 backdrop-blur-md border border-slate-800/60 shadow-xl;
-  }
-  .glass-card-hover {
-    @apply transition-all duration-300 hover:bg-slate-900/60 hover:border-slate-700/80 hover:shadow-2xl hover:-translate-y-0.5;
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400;
-  }
+/* ── Google Font ───────────────────────────────────────── */
+
+/* ── Base Resets ───────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Smooth custom scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar-track {
-  background: #0b0f19;
+/* ── Auth Background Gradient ──────────────────────────── */
+.auth-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    min-height: 100dvh;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 9999px;
+.auth-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+/* ── Glass Card ────────────────────────────────────────── */
+.glass-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 1rem;
+}
+
+/* ── Input Styles ──────────────────────────────────────── */
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.input-field::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* ── Button Styles ─────────────────────────────────────── */
+.btn-primary {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── Animations ────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
 }

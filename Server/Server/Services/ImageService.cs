@@ -1,6 +1,7 @@
 ﻿
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Server.Common;
 
 namespace Server.Services
 {
@@ -35,7 +36,7 @@ namespace Server.Services
             await _cloudinary.DestroyAsync(deleteParams);
         }
 
-        public async Task<string> UploadImageAsync(IFormFile file, string folder)
+        public async Task<ServiceResult<string>> UploadImageAsync(IFormFile file, string folder)
         {
             await using var stream = file.OpenReadStream();
             var uploadParams = new ImageUploadParams
@@ -45,7 +46,7 @@ namespace Server.Services
                 Transformation = new Transformation().Width(400).Height(400).Crop("fill").Gravity("face")
             };
             var result = await _cloudinary.UploadAsync(uploadParams);
-            return result.SecureUrl.ToString();
+            return ServiceResult<string>.Ok(result.SecureUrl.ToString());
         }
 
     }
