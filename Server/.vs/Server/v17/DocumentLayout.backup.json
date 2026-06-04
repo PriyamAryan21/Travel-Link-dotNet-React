@@ -298,8 +298,7 @@
               "RelativeToolTip": "Server\\DTOs\\Itinerary\\AutoGenerateItineraryDto.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T17:20:36.082Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-30T17:20:36.082Z"
             },
             {
               "$type": "Document",
@@ -311,8 +310,7 @@
               "RelativeToolTip": "Server\\Services\\FriendService.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAmwCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T09:32:59.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-25T09:32:59.113Z"
             },
             {
               "$type": "Document",
@@ -322,10 +320,14 @@
               "RelativeDocumentMoniker": "Server\\Services\\GroupService.cs",
               "ToolTip": "F:\\Projects\\TravelLink\\Server\\Server\\Services\\GroupService.cs",
               "RelativeToolTip": "Server\\Services\\GroupService.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAlwEoAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAlwEAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-25T16:35:34.986Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -349,8 +351,7 @@
               "RelativeToolTip": "Server\\DTOs\\Users\\UserProfileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T13:16:38.788Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T13:16:38.788Z"
             },
             {
               "$type": "Document",
@@ -363,10 +364,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T11:31:15.684Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",

@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { MapPin, Mail, Lock, User, Loader2, Plane } from 'lucide-react';
+import { Mail, Lock, User, Loader2, Plane } from 'lucide-react';
 
 export default function RegisterPage() {
     const { register } = useAuth();
@@ -25,30 +25,35 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="auth-gradient relative overflow-hidden flex items-center justify-center p-4">
-            <div className="auth-glow bg-purple-500 top-[-100px] right-[-50px] absolute" />
-            <div className="auth-glow bg-indigo-500 bottom-[-100px] left-[-50px] absolute" />
+        <div
+            className="min-h-screen w-full flex bg-cover bg-center bg-no-repeat relative"
+            style={{ backgroundImage: "url('/bg-travel.png')" }}
+        >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-slate-900/30"></div>
 
-            <div className="w-full max-w-md relative z-10">
-                {/* Logo */}
-                <div className="text-center mb-8 animate-fade-in-up">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-500/20 mb-4">
-                        <MapPin className="w-8 h-8 text-indigo-400" />
+            {/* Left Side: Form (on desktop) */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 relative z-10">
+
+                <div className="glass-card w-full max-w-sm p-8 sm:p-12 animate-fade-in-up shadow-2xl" style={{ animationDelay: '0.1s' }}>
+
+                    {/* Mobile Only Header */}
+                    <div className="lg:hidden text-center mb-8 flex flex-col items-center">
+                        <h1 className="flex select-none items-baseline justify-center drop-shadow-md">
+                            <span className='font-cardo font-bold text-6xl text-white'>Travel</span>
+                            <span className="font-vibes font-bold text-nature-gradient text-6xl">Link</span>
+                        </h1>
                     </div>
-                    <h1 className="text-3xl font-bold tracking-tight">
-                        Travel<span className="text-indigo-400">Link</span>
-                    </h1>
-                    <p className="text-slate-400 mt-2">Start your journey</p>
-                </div>
 
-                {/* Register Card */}
-                <div className="glass-card p-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    <h2 className="text-xl font-semibold mb-6">Create your account</h2>
+                    <div className="mb-10 text-center lg:text-left">
+                        <h2 className="text-2xl font-semibold mb-2 text-white">Create your account</h2>
+                        <p className="text-slate-300 text-sm">Start your journey with us</p>
+                    </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Name */}
-                        <div>
-                            <label htmlFor="reg-name" className="block text-sm font-medium text-slate-300 mb-1.5">
+                        <div style={{ marginTop: '1rem' }}>
+                            <label htmlFor="reg-name" className="block text-sm font-medium text-slate-200 mb-1.5">
                                 Full Name
                             </label>
                             <div className="relative">
@@ -56,8 +61,8 @@ export default function RegisterPage() {
                                 <input
                                     id="reg-name"
                                     type="text"
-                                    className="input-field pl-10"
-                                    placeholder="John Doe"
+                                    className="input-field bg-slate-900/40 border-white/10 focus:border-sky-500/50"
+                                    placeholder="Enter your name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     required
@@ -67,7 +72,7 @@ export default function RegisterPage() {
 
                         {/* Email */}
                         <div>
-                            <label htmlFor="reg-email" className="block text-sm font-medium text-slate-300 mb-1.5">
+                            <label htmlFor="reg-email" className="block text-sm font-medium text-slate-200 mb-1.5">
                                 Email
                             </label>
                             <div className="relative">
@@ -75,8 +80,8 @@ export default function RegisterPage() {
                                 <input
                                     id="reg-email"
                                     type="email"
-                                    className="input-field pl-10"
-                                    placeholder="you@example.com"
+                                    className="input-field bg-slate-900/40 border-white/10 focus:border-sky-500/50"
+                                    placeholder="Enter your email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -86,7 +91,7 @@ export default function RegisterPage() {
 
                         {/* Password */}
                         <div>
-                            <label htmlFor="reg-password" className="block text-sm font-medium text-slate-300 mb-1.5">
+                            <label htmlFor="reg-password" className="block text-sm font-medium text-slate-200 mb-1.5">
                                 Password
                             </label>
                             <div className="relative">
@@ -94,7 +99,7 @@ export default function RegisterPage() {
                                 <input
                                     id="reg-password"
                                     type="password"
-                                    className="input-field pl-10"
+                                    className="input-field bg-slate-900/40 border-white/10 focus:border-sky-500/50"
                                     placeholder="Min. 6 characters"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -104,32 +109,47 @@ export default function RegisterPage() {
                             </div>
                         </div>
 
-                        <button
-                            type="submit"
-                            className="btn-primary flex items-center justify-center gap-2"
-                            disabled={loading}
-                        >
-                            {loading ? (
-                                <Loader2 className="w-5 h-5 animate-spin" />
-                            ) : (
-                                <>
-                                    <Plane className="w-4 h-4" />
-                                    Create Account
-                                </>
-                            )}
-                        </button>
-                    </form>
-                </div>
+                        {/* Submit */}
+                        <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
 
-                <p
-                    className="text-center text-slate-400 mt-6 text-sm animate-fade-in-up"
-                    style={{ animationDelay: '0.2s' }}
-                >
-                    Already have an account?{' '}
-                    <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors">
-                        Sign in
-                    </Link>
-                </p>
+                            <button
+                                type="submit"
+                                className="btn-primary flex items-center justify-center gap-2 shadow-lg shadow-sky-500/25"
+                                disabled={loading}
+                            >
+                                {loading ? (
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                ) : (
+                                    <>
+                                        <Plane className="w-5 h-5" />
+                                        Create Account
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    </form>
+
+                    <p className="text-center text-slate-300 mt-20 text-sm">
+                        Already have an account?{' '}
+                        <Link to="/login" className="text-sky-400 hover:text-sky-300 font-semibold transition-colors drop-shadow">
+                            Sign in
+                        </Link>
+                    </p>
+                </div>
+            </div>
+
+            {/* Right Side: Branding (Hidden on mobile) */}
+            <div className="hidden lg:flex w-1/2 flex-col justify-center items-center p-16 relative z-10 text-white">
+
+                <div className="animate-fade-in-up flex flex-col items-center text-center max-w-md">
+                    <h1 className="select-none drop-shadow-lg flex items-baseline justify-center">
+                        <span className='font-cardo font-bold text-9xl text-white'>Travel</span>
+                        <span className="font-vibes font-bold text-nature-gradient text-9xl">Link</span>
+                    </h1>
+                    <p className="text-xl text-slate-100 leading-relaxed drop-shadow">
+                        Plan your perfect getaway, split expenses, and create unforgettable memories with your favorite people.
+                    </p>
+                </div>
             </div>
         </div>
     );

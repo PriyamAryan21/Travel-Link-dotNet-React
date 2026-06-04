@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 /* ── Custom Design Tokens ──────────────────────────────── */
 @theme {
-    --color-primary: #6366f1;
-    --color-primary-hover: #4f46e5;
-    --color-primary-light: #a5b4fc;
+    --color-primary: #0284c7;
+    /* Sky 600 - Ocean vibe */
+    --color-primary-hover: #0369a1;
+    /* Sky 700 */
+    --color-primary-light: #38bdf8;
+    /* Sky 400 */
     --color-surface: #0f172a;
     --color-surface-light: #1e293b;
     --color-surface-card: #1e293b;
@@ -15,11 +18,12 @@
     --color-danger: #ef4444;
     --color-success: #22c55e;
     --font-sans: 'Inter', system-ui, sans-serif;
+
+    --font-cardo: 'Cardo', serif;
+    --font-vibes: 'Great Vibes', cursive;
 }
 
-/* ── Google Font ───────────────────────────────────────── */
-
-/* ── Base Resets ───────────────────────────────────────── */
+/* ── Base Resets (Keep these as they are) ──────────────── */
 * {
     margin: 0;
     padding: 0;
@@ -34,53 +38,64 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Auth Background Gradient ──────────────────────────── */
-.auth-gradient {
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-    min-height: 100dvh;
-}
-
-.auth-glow {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.15;
-    pointer-events: none;
-}
-
 /* ── Glass Card ────────────────────────────────────────── */
 .glass-card {
-    background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(99, 102, 241, 0.15);
-    border-radius: 1rem;
+    padding: 15px;
+    /* Lighter, airy frosted glass for a premium travel vibe */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
+
+.text-nature-gradient {
+    /* Sky (cyan), Water (deep blue), Trees (emerald), Mountain (slate), Rock (stone) */
+    background: linear-gradient(90deg, #38bdf8 0%, #0284c7 25%, #10b981 50%, #475569 75%, #78716c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.4;
+    display: inline-block;
+    padding-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    padding: 0.5rem 1rem;
+}
+
 
 /* ── Input Styles ──────────────────────────────────────── */
 .input-field {
     width: 100%;
-    padding: 0.75rem 1rem;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    color: var(--color-text);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    padding-right: 1rem;
+    padding-left: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    /* Darker input to contrast with light glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: white;
     font-size: 0.95rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
     outline: none;
 }
 
 .input-field:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.3);
 }
 
 .input-field::placeholder {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
 }
 
-/* ── Button Styles ─────────────────────────────────────── */
+
+/* ── Button Styles (Keep these as they are) ────────────── */
 .btn-primary {
     width: 100%;
     padding: 0.75rem 1.5rem;
@@ -108,7 +123,7 @@ body {
     transform: none;
 }
 
-/* ── Animations ────────────────────────────────────────── */
+/* ── Animations (Keep these as they are) ───────────────── */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -121,22 +136,6 @@ body {
     }
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
 .animate-fade-in-up {
     animation: fadeInUp 0.5s ease-out forwards;
-}
-
-.animate-float {
-    animation: float 6s ease-in-out infinite;
 }

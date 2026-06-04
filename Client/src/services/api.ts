@@ -113,20 +113,26 @@ api.interceptors.response.use((response) => response,
 export async function unwrap<T>(request: Promise<{ data: ServiceResult<T> }>): Promise<T> {
     try {
         const { data: result } = await request;
+
+        // Handles 2xx responses where backend returned success: false
         if (!result.success) {
             toast.error(result.message || 'Request failed');
             throw new Error(result.message || 'Request failed');
         }
         return result.data as T;
+
     } catch (error) {
-        if (error instanceof Error && !error.message.includes('Request failed')) {
-            const axiosErr = error as AxiosError<ServiceResult>;
-            const msg = axiosErr.response?.data?.message || 'Network error. Please try again';
+        // Only toast for AxiosErrors (HTTP failures).
+        // Plain Errors from the try block above were already toasted — skip them.
+        if (axios.isAxiosError(error)) {
+            const msg = error.response?.data?.message || 'Something went wrong. Please try again.';
             toast.error(msg);
         }
         throw error;
     }
 }
+
+
 
 export default api;
 
