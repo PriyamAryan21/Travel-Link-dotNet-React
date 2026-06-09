@@ -65,7 +65,7 @@ export default function AddExpenseModal({
     }, [selectedGroupId, activeTab]);
 
     // Build the dynamic "Members" list based on the active tab
-    const activeMembers: { userId: string, userName: string, imageUrl?: string }[] = activeTab === 'group'
+    const activeMembers: { userId: string, userName: string, imageUrl?: string | null }[] = activeTab === 'group'
         ? groupMembers.map(m => ({ userId: m.userId, userName: m.userName, imageUrl: m.imageUrl }))
         : [
             { userId: user?.userId || '', userName: 'You', imageUrl: user?.imageUrl },
