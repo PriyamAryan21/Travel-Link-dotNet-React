@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
 import { tripService } from '../../services/tripService';
-import groupService from '../../services/groupService';
 import { NavLink } from 'react-router-dom';
-import type { TripDto, GroupDto, CreateTripDto } from '../../types';
+import type { TripDto } from '../../types';
 import {
     Plane,
     MapPin,
     Calendar,
     Users,
     Plus,
-    X,
     Trash2,
-    Loader2,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import './trips.css';

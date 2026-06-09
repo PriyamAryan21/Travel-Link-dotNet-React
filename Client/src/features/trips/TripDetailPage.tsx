@@ -14,8 +14,6 @@ import {
     X,
     Loader2,
     ClipboardList,
-    CheckCircle2,
-    Clock,
     Sparkles,
     DollarSign,
     Hotel,
@@ -63,12 +61,7 @@ export default function TripDetailPage() {
         return `In ${diff} days`;
     };
 
-    const getStatusColor = (status: string) => {
-        const s = (status || '').toLowerCase();
-        if (s === 'generated' || s === 'completed') return 'var(--color-success)';
-        if (s === 'open' || s === 'awaiting') return 'var(--color-warning)';
-        return 'var(--color-primary-light)';
-    };
+
 
     const handleDeleteItinerary = async (requestId: string) => {
         if (!confirm('Delete this itinerary request?')) return;

@@ -8,7 +8,7 @@ import groupService from '../../services/groupService';
 import type { GroupDto, FriendDto } from '../../types';
 import friendService from '../../services/friendService';
 import { toast } from 'sonner';
-import { Users, User, LogOut, ArrowLeft, Loader2, Navigation, Activity } from 'lucide-react';
+import { LogOut, ArrowLeft, Navigation, Activity } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import './location.css';
 
@@ -44,7 +44,7 @@ const locationEvents = new LocationEventEmitter();
 // --- OPTIMIZED MARKER COMPONENT ---
 // This component only re-renders itself when its specific user moves, 
 // leaving the rest of the Map and other markers untouched!
-const LiveUserMarker = ({ userId, initialLocation, mapInstance }: { userId: string, initialLocation: any, mapInstance: L.Map | null }) => {
+const LiveUserMarker = ({ userId, initialLocation }: { userId: string, initialLocation: any }) => {
     const [location, setLocation] = useState(initialLocation);
 
     useEffect(() => {
@@ -110,8 +110,8 @@ export default function LocationPage() {
 
     // Session state
     const [sessionType, setSessionType] = useState<'none' | 'group' | 'private'>('none');
-    const [sessionId, setSessionId] = useState<string | null>(null);
-    const [isConnecting, setIsConnecting] = useState(false);
+    const [, setSessionId] = useState<string | null>(null);
+    const [, setIsConnecting] = useState(false);
 
     // UI state for dropdowns
     const [groups, setGroups] = useState<GroupDto[]>([]);
@@ -161,7 +161,7 @@ export default function LocationPage() {
             locationEvents.emit(loc.userId, loc);
         };
 
-        const handleUserJoined = (userId: string) => {
+        const handleUserJoined = () => {
             toast.info("A user joined the location session");
         };
 
@@ -359,7 +359,6 @@ export default function LocationPage() {
                         key={id}
                         userId={id}
                         initialLocation={locationsRef.current.get(id)}
-                        mapInstance={mapInstance}
                     />
                 ))}
             </MapContainer>

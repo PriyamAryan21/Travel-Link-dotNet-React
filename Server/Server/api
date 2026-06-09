@@ -1,0 +1,27 @@
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Host=YOUR_DB_HOST;Database=YOUR_DB_NAME;Username=YOUR_DB_USER;Password=YOUR_DB_PASSWORD;Ssl Mode=Require;"
+    },
+    "Jwt": {
+        "Key": "YOUR_SUPER_SECRET_JWT_KEY_AT_LEAST_32_CHARACTERS",
+        "Issuer": "TravelLinkServer",
+        "Audience": "TravelLinkClient",
+        "ExpiresInDays": 7
+    },
+    "Cloudinary": {
+        "CloudName": "YOUR_CLOUDINARY_NAME",
+        "ApiKey": "YOUR_CLOUDINARY_API_KEY",
+        "ApiSecret": "YOUR_CLOUDINARY_API_SECRET"
+    },
+    "Gemini": {
+        "ApiKey": "YOUR_GEMINI_API_KEY",
+        "Model": "gemini-2.5-flash"
+    }
+}

@@ -133,7 +133,6 @@ function Sidebar() {
 
 function TopBar() {
     const location = useLocation();
-    const { user } = useAuth();
 
     const getTitle = () => {
         const path = location.pathname.split('/')[1] || 'dashboard';

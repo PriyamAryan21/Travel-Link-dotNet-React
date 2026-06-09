@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { CreateTripDto, GroupDto, TripDto } from "../../types";
+import type { CreateTripDto, GroupDto } from "../../types";
 import groupService from "../../services/groupService";
 import { tripService } from "../../services/tripService";
 import { Loader2, X } from "lucide-react";

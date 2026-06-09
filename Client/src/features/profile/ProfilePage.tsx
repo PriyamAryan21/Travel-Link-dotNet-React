@@ -6,7 +6,7 @@ import userService from '../../services/userService';
 import type { UserProfileDetailDto } from '../../types';
 import {
     User, Calendar, Users, MapPin, Loader2,
-    ShieldCheck, ArrowLeft, Briefcase, Camera, Receipt
+    ShieldCheck, ArrowLeft, Camera, Receipt
 } from 'lucide-react';
 import './profile.css';
 import { getOptimizedImageUrl } from '../../utils/image';

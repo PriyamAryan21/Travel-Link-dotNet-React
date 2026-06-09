@@ -58,32 +58,4 @@ function App() {
     </ThemeProvider>
   );
 }
-
-/* Temporary placeholder — delete when you build real pages */
-function PlaceholderPage({ emoji, title }: { emoji: string; title: string }) {
-  return (
-    <div className="glass-card" style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '60vh',
-      gap: '1rem',
-      textAlign: 'center',
-    }}>
-      <span style={{ fontSize: '3rem' }}>{emoji}</span>
-      <h2 style={{
-        fontFamily: 'var(--font-heading)',
-        fontSize: '1.75rem',
-        color: 'var(--color-text)',
-      }}>
-        {title}
-      </h2>
-      <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-        Coming soon — this page is under construction
-      </p>
-    </div>
-  );
-}
-
 export default App;
