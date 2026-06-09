@@ -10,5 +10,6 @@
         public string Status { get; set; } = string.Empty;  // Open | Generating | Generated
         public int TotalSuggestions { get; set; }
         public int ApprovedSuggestions { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

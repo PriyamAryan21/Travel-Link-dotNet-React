@@ -1,7 +1,7 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
 import type { ServiceResult, AuthResponseDto, RefreshTokenRequestDto } from "../types";
 import { toast } from "sonner";
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -122,14 +122,21 @@ export async function unwrap<T>(request: Promise<{ data: ServiceResult<T> }>): P
         return result.data as T;
 
     } catch (error) {
-        // Only toast for AxiosErrors (HTTP failures).
-        // Plain Errors from the try block above were already toasted — skip them.
         if (axios.isAxiosError(error)) {
-            const msg = error.response?.data?.message || 'Something went wrong. Please try again.';
-            toast.error(msg);
+            if (error.response?.status === 429) {
+                const msg = typeof error.response.data === 'string'
+                    ? error.response.data
+                    : 'Rate limit exceeded. Please try again later.';
+                toast.error(msg, { duration: 6000 });
+            } else {
+                // Standard fallback
+                const msg = error.response?.data?.message || 'Something went wrong. Please try again.';
+                toast.error(msg);
+            }
         }
         throw error;
     }
+
 }
 
 

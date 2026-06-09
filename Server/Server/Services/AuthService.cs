@@ -72,7 +72,8 @@ namespace Server.Services
                 RefreshToken = refreshToken,
                 Name = user.Name,
                 Email = user.Email,
-                UserId = user.Id
+                UserId = user.Id,
+                ImageUrl = user.ImageUrl
             });
         }
 

@@ -4,6 +4,7 @@ export interface AuthResponseDto {
     name: string;
     email: string;
     userId: string;
+    imageUrl?: string | null;
 }
 
 export interface LoginDto {

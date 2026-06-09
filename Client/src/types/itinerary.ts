@@ -4,7 +4,21 @@ export interface AddSuggestionDto {
     notes?: string;
 }
 
-export interface AddGenerateItineraryDto {
+export interface CreateItineraryRequestDto {
+    tripId: string;
+    totalBudget: number;
+    dailyHotelCostPerRoom?: number;
+    numberOfRooms?: number;
+    vehicleType?: string;
+    vehicleCount?: number;
+    isRental?: boolean;
+    dailyRentalCostPerVehicle?: number;
+    dailyFuelCostPerVehicle?: number;
+    note?: string;
+}
+
+
+export interface AutoGenerateItineraryDto {
     groupId: string;
     destination: string;
     startDate: string;
@@ -38,6 +52,7 @@ export interface GroupItineraryStatusDto {
     status: string;
     totalSuggestions: number;
     approvedSuggestions: number;
+    isAdmin: boolean;
 }
 
 export interface ItineraryDayDto {
@@ -106,4 +121,21 @@ export interface SuggestionDto {
     suggestedByImageUrl: string | null;
     suggestedByUserId: string;
     createdAt: string;
+}
+
+export interface UserItinerarySummaryDto {
+    itineraryId: string;
+    requestId: string;
+    tripId: string;
+    groupId: string;
+    groupName: string;
+    destination: string;
+    startDate: string;
+    endDate: string;
+    status: string;
+    generatedAt: string | null;
+    totalBudget: number;
+    totalSuggestions: number;
+    approvedSuggestions: number;
+    isAdmin: boolean;
 }

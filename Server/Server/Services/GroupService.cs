@@ -9,11 +9,12 @@ namespace Server.Services
     public class GroupService : IGroupService
     {
         private readonly AppDbContext _db;
-        public GroupService(AppDbContext db)
+        private readonly ILoggingService _loggingService;
+        public GroupService(AppDbContext db, ILoggingService loggingService)
         {
             _db = db;
+            _loggingService = loggingService;
         }
-
         public async Task<ServiceResult<bool>> AddMemberAsync(Guid groupId, Guid requesterId, Guid newMemberId)
         {
             var requester = await _db.GroupMembers
@@ -33,6 +34,17 @@ namespace Server.Services
             });
 
             await _db.SaveChangesAsync();
+
+            // --- LOGGING & NOTIFICATIONS ---
+            var targetUser = await _db.Users.FindAsync(newMemberId);
+            var group = await _db.Groups.FindAsync(groupId);
+            if (targetUser != null && group != null)
+            {
+                await _loggingService.LogGroupActivityAsync(groupId, requesterId, "MEMBER_ADDED", $"added {targetUser.Name} to the group");
+                await _loggingService.SendNotificationAsync(newMemberId, "Added to Group", $"You were added to the group '{group.Name}'", $"/groups/{groupId}");
+            }
+
+
             return ServiceResult<bool>.Ok(true);
         }
 
@@ -99,8 +111,6 @@ namespace Server.Services
             return ServiceResult<List<GroupDto>>.Ok(result);
         }
 
-
-
         public async Task<ServiceResult<bool>> LeaveGroupAsync(Guid groupId, Guid userId)
         {
             var member = await _db.GroupMembers
@@ -140,6 +150,12 @@ namespace Server.Services
             }
 
             await _db.SaveChangesAsync();
+
+            var user = await _db.Users.FindAsync(userId);
+            // --- LOGGING ---
+            await _loggingService.LogGroupActivityAsync(groupId, userId, "MEMBER_LEFT", $"{user.Name} left the group");
+
+
             return ServiceResult<bool>.Ok(true);
         }
 
@@ -159,6 +175,17 @@ namespace Server.Services
 
             _db.GroupMembers.Remove(target);
             await _db.SaveChangesAsync();
+
+            //LOGGING & NOTIFICATIONS
+            var targetUser = await _db.Users.FindAsync(targetUserId);
+            var group = await _db.Groups.FindAsync(groupId);
+            if (targetUser != null && group != null)
+            {
+                await _loggingService.LogGroupActivityAsync(groupId, requesterId, "MEMBER_REMOVED", $"Admin removed {targetUser.Name} from the group");
+                await _loggingService.SendNotificationAsync(targetUserId, "Removed from Group", $"You were removed from the group '{group.Name}'");
+            }
+
+
             return ServiceResult<bool>.Ok(true);
         }
 
@@ -177,6 +204,7 @@ namespace Server.Services
                 UserName = m.User?.Name ?? String.Empty,
                 Email = m.User?.Email ?? String.Empty,
                 Role = m.Role,
+                ProfilePictureUrl = m.User?.ImageUrl,
                 JoinedAt = m.JoinedAt
             }).ToList()
         };

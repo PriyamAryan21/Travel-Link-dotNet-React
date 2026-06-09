@@ -1,0 +1,41 @@
+Now we will be building the expense page which will contain group expenses and user to user expenses 
+
+"/expense"
+Expense cards: Title, amount, paid by (avatar), date, category icon. 
+Split status indicators (settled/pending)
+FAB: "Add Expense"
+Two tabs:- User Expense, Group Expense
+Endpoints Services Used: GetUserExpenses, DeleteExpenseAsync,GetGroupExpenses, DeleteExpenseAsync
+
+"/expense/group/{groupId}"
+Full breakdown with split amounts per member
+"Mark as Paid" button per split
+Animated progress bar for settlement
+Who owes whom visualization
+BalanceDto
+ → directional arrows between avatars
+Net balance per person (green = owed, red = owes
+Total spend, settled vs unsettled (donut chart)
+Category breakdown (horizontal bar chart)
+Member contributions comparison
+Endpoints Services Used: GetGroupExpenses, GetGroupBalances, GetGroupAnalytics, MarkSplitAsPaid, DeleteExpenseAsync
+
+'expense/user/{userId}'
+Net balance with specific person
+Transaction history between two users
+Endpoints Services Used: 
+GetUserToUserSummary, MarkSplitAsPaid, DeleteExpenseAsync
+
+"expense/expenseId"
+Title, Desciption, amount, category, Date, createdAt, paidby(link to profile), group(if group expense) - link to group, warning(if any)
+Endpoints Services Used:
+GetExpenseByIdAsync
+
+'addExpenseModal'
+Title, Amount, Category picker, Date
+Split Type selector: Equal | Exact | Percentage
+Participant selector from group members
+Split preview before submission
+Endpoints Services Used: CreateExpense
+
+Check if all the api endpoints are available in the backend, i think we will need to build GetUserExpenses in the backend...

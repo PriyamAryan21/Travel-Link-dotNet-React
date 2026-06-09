@@ -2,7 +2,7 @@ export interface CreateGroupDto {
     name: string;
     description: string;
     coverImageUrl?: string;
-    members: string[];
+    memberIds: string[];
 }
 
 export interface GroupDto {
@@ -20,6 +20,7 @@ export interface GroupMemberDto {
     userId: string;
     userName: string;
     email: string;
+    imageUrl: string;
     role: string;
     joinedAt: string;
 }

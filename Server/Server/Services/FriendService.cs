@@ -10,9 +10,11 @@ namespace Server.Services
     public class FriendService : IFriendService
     {
         private readonly AppDbContext _context;
-        public FriendService(AppDbContext context)
+        private readonly ILoggingService _loggingService;
+        public FriendService(AppDbContext context, ILoggingService loggingService)
         {
             _context = context;
+            _loggingService = loggingService;
         }
         public async Task<ServiceResult<List<FriendDto>>> GetFriendsAsync(Guid userId)
         {
@@ -33,6 +35,9 @@ namespace Server.Services
                     ImageUrl = friend.ImageUrl
                 };
             }).ToList();
+
+
+
             return new ServiceResult<List<FriendDto>>
             {
                 Success = true,
@@ -74,6 +79,20 @@ namespace Server.Services
 
             request.Status = action.ToLower() == "accept" ? "Accepted" : "Rejected";
             await _context.SaveChangesAsync();
+
+            // --- NOTIFICATIONS ---
+            if (request.Status == "Accepted")
+            {
+                var receiver = await _context.Users.FindAsync(currentUserId);
+                await _loggingService.SendNotificationAsync(
+                    request.SenderId,
+                    "Friend Request Accepted",
+                    $"{receiver?.Name} accepted your friend request!",
+                    "/friends"
+                );
+            }
+
+
             return ServiceResult<(bool Success, string Message)>.Ok((true, $"Friend request {request.Status.ToLower()}"));
         }
 
@@ -100,6 +119,16 @@ namespace Server.Services
 
             _context.FriendRequests.Add(request);
             await _context.SaveChangesAsync();
+
+            //NOTIFICATIONS
+            var sender = await _context.Users.FindAsync(senderId);
+            await _loggingService.SendNotificationAsync(
+                dto.ReceiverId,
+                "New Friend Request",
+                $"{sender?.Name} sent you a friend request.",
+                "/friends"
+            );
+
 
             return ServiceResult<(bool Success, string Message)>.Ok((true, "Friend request sent"));
         }

@@ -1,0 +1,22 @@
+thank you, we will be building the 'trip/:tripId/Itinerary/:itineraryId' page to show the complete Itinerary Status...
+this will be the most important complete the this application so we need to design it as simple as we can
+F1 — Itinerary Status Dashboard
+Status badge: Draft | Collecting Suggestions | Generated
+Budget overview, date range, suggestion progress
+Action buttons based on status (Generate Itinerary,delete itinerary, show generated itinerary for admin/ show generated itinerary for member [if available]) in the top 
+[Services used: 
+GET
+/api/itinerary/trip/status/{tripId}
+DELETE
+/api/itinerary/request/{requestId}
+GET
+/api/itinerary/{requestId}/result
+]
+
+Bottom half of the page will render all the suggestions along with the admin
+Vote toggle (heart/thumbs up with animation)
+Admin review actions (approve/reject)
+"Add Suggestion" FAB 
+vote count, delete suggestion [for admin and suggester]
+
+show generated itinerary redirects to trips/:tripid/Itinerary/:itineraryId/results.. which we will build later

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Server.Models.Entities;
 
 namespace Server.Data
@@ -12,6 +12,13 @@ namespace Server.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Indexes for Performance Optimization
+            modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
+            modelBuilder.Entity<Trip>().HasIndex(t => t.StartDate);
+            modelBuilder.Entity<Expense>().HasIndex(e => e.Date);
+            modelBuilder.Entity<FriendRequest>().HasIndex(fr => fr.Status);
+            modelBuilder.Entity<Group>().HasIndex(g => g.CreatedAt);
 
             //Friend System Module
             modelBuilder.Entity<FriendRequest>()
@@ -103,11 +110,6 @@ namespace Server.Data
 
 
             //Itinerary Builder Module
-            modelBuilder.Entity<ItineraryRequest>()
-                .HasOne(r => r.Group)
-                .WithMany()
-                .HasForeignKey(r => r.GroupId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ItineraryRequest>()
                 .HasOne(r => r.CreatedBy)
@@ -161,6 +163,43 @@ namespace Server.Data
                 .HasForeignKey(i => i.DayId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Trip>()
+                .HasOne(t => t.Group)
+                .WithMany(g => g.Trips)
+                .HasForeignKey(t => t.GroupId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Trip>()
+                .HasOne(t => t.CreatedBy)
+                .WithMany()
+                .HasForeignKey(t => t.CreatedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ItineraryRequest>()
+                .HasOne(i => i.Trip)
+                .WithOne(t => t.ItineraryRequest)
+                .HasForeignKey<ItineraryRequest>(r => r.TripId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            
+
+            modelBuilder.Entity<ActivityLog>()
+                .HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ActivityLog>()
+                .HasOne(a => a.Group)
+                .WithMany()
+                .HasForeignKey(a => a.GroupId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany()
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
         public DbSet<User> Users { get; set; }
@@ -169,11 +208,14 @@ namespace Server.Data
         public DbSet<GroupMember> GroupMembers { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpenseSplit> ExpenseSplits { get; set; }
+        public DbSet<Trip> Trips { get; set; }
         public DbSet<ItineraryRequest> ItineraryRequests { get; set; }
         public DbSet<PlaceSuggestion> PlaceSuggestions { get; set; }
         public DbSet<SuggestionVote> SuggestionVotes { get; set; }
         public DbSet<GeneratedItinerary> GeneratedItineraries { get; set; }
         public DbSet<ItineraryDay> ItineraryDays { get; set; }
         public DbSet<ItineraryItem> ItineraryItems { get; set; }
-    }
+        public DbSet<ActivityLog> ActivityLogs { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        }
 }

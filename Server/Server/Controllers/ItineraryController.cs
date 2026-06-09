@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Server.DTOs.Itinerary;
 using Server.Services;
 using System.Security.Claims;
@@ -28,10 +29,10 @@ namespace Server.Controllers
             return result.Success ? Ok(result) : BadRequest(result.Message);
         }
 
-        [HttpGet("group/{groupId:guid}/status")]
-        public async Task<IActionResult> GetGroupStatus(Guid groupId)
+        [HttpGet("{tripId:guid}/status")]
+        public async Task<IActionResult> GetTripStatus(Guid tripId)
         {
-            var result = await _itineraryService.GetGroupItineraryStatusAsync(GetUserId(), groupId);
+            var result = await _itineraryService.GetTripItineraryStatusAsync(GetUserId(), tripId);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
@@ -84,6 +85,7 @@ namespace Server.Controllers
 
 
         [HttpPost("{requestId:guid}/generate")]
+        [EnableRateLimiting("ItineraryGenerationPolicy")]
         public async Task<IActionResult> Generate(Guid requestId, [FromBody] GenerateItineraryDto dto)
         {
             var result = await _itineraryService.GenerateItineraryAsync(GetUserId(), requestId, dto);
@@ -91,6 +93,7 @@ namespace Server.Controllers
         }
 
         [HttpPost("request/auto-generate")]
+        [EnableRateLimiting("ItineraryGenerationPolicy")]
         public async Task<IActionResult> AutoGenerate([FromBody] AutoGenerateItineraryDto dto)
         {
             var result = await _itineraryService.AutoGenerateItineraryAsync(GetUserId(), dto);
@@ -105,11 +108,25 @@ namespace Server.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
+        [HttpDelete("{requestId:guid}/result")]
+        public async Task<IActionResult> DeleteResult(Guid requestId)
+        {
+            var result = await _itineraryService.DeleteGeneratedItineraryAsync(GetUserId(), requestId);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
 
         [HttpPatch("item/{itemId:guid}/complete")]
         public async Task<IActionResult> ToggleItemComplete(Guid itemId)
         {
             var result = await _itineraryService.ToggleItemCompleteAsync(GetUserId(), itemId);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("user")]
+        public async Task<IActionResult> GetItinerariesByUser()
+        {
+            var result = await _itineraryService.GetItinerariesByUserAsync(GetUserId());
             return result.Success ? Ok(result) : BadRequest(result);
         }
     }

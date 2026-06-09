@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Server.Data;
 using Server.DTOs.Expenses;
 using Server.Models.Entities;
@@ -8,9 +8,11 @@ namespace Server.Services
     public class ExpenseService : IExpenseService
     {
         private readonly AppDbContext _db;
-        public ExpenseService(AppDbContext db)
+        private readonly ILoggingService _loggingService;
+        public ExpenseService(AppDbContext db, ILoggingService loggingService)
         {
             _db = db;
+            _loggingService = loggingService;
         }
         public async Task<ServiceResult<ExpenseDto?>> AddExpenseAsync(Guid userId, CreateExpenseDto dto)
         {
@@ -63,6 +65,27 @@ namespace Server.Services
             if (splits == null) return ServiceResult<ExpenseDto?>.Fail("Invalid split configuration");
             _db.ExpenseSplits.AddRange(splits);
             await _db.SaveChangesAsync();
+
+
+            //LOGGING & NOTIFICATIONS
+            if (dto.GroupId.HasValue)
+            {
+                await _loggingService.LogGroupActivityAsync(dto.GroupId.Value, userId, "EXPENSE_ADDED", $"added a new expense: {expense.Title} (₹{expense.Amount})");
+            }
+
+            var payer = await _db.Users.FindAsync(userId);
+            var payerName = payer?.Name ?? "Someone";
+
+            foreach (var split in splits.Where(s => s.UserId != userId))
+            {
+                await _loggingService.SendNotificationAsync(
+                    split.UserId,
+                    "New Expense Split",
+                    $"{payerName} added a new expense '{expense.Title}'. You owe ₹{split.AmountOwed}.",
+                    dto.GroupId.HasValue ? $"/expenses/group/{dto.GroupId}" : "/expenses"
+                );
+            }
+
             var result = await GetExpenseByIdAsync(expense.Id, userId);
 
             if(result.Success 
@@ -92,6 +115,16 @@ namespace Server.Services
 
             _db.Expenses.Remove(expense);
             await _db.SaveChangesAsync();
+
+            // LOGGING
+
+            _db.Expenses.Remove(expense);
+            if (expense.GroupId.HasValue)
+            {
+                await _loggingService.LogGroupActivityAsync(expense.GroupId.Value, userId, "EXPENSE_DELETED", $"deleted the expense: {expense.Title}");
+            }
+
+
             return ServiceResult<bool>.Ok(true);
         }
 
@@ -154,6 +187,8 @@ namespace Server.Services
                 .Include(m => m.User)
                 .ToListAsync();
 
+            var unPaidSplits = allSplits.Where(s => !s.IsPaid && s.UserId != s.Expense?.PaidByUserId).ToList();
+
             var memberContributions = members.Select(m =>
             {
                 decimal totalPaid = expenses
@@ -162,6 +197,9 @@ namespace Server.Services
                 decimal totalOwed = allSplits
                     .Where(s => s.UserId == m.UserId)
                     .Sum(s => s.AmountOwed);
+                
+                decimal currentOwedToMe = unPaidSplits.Where(s => s.Expense?.PaidByUserId == m.UserId).Sum(s => s.AmountOwed);
+                decimal currentIOwe = unPaidSplits.Where(s => s.UserId == m.UserId).Sum(s => s.AmountOwed);
                 return new GroupAnalyticsDto.MemberContributionDto
                 {
                     UserId = m.UserId,
@@ -169,11 +207,11 @@ namespace Server.Services
                     ImageUrl = m.User?.ImageUrl,
                     TotalPaid = totalPaid,
                     TotalOwed = totalOwed,
-                    NetBalance = Math.Round(totalPaid - totalOwed, 2)
+                    NetBalance = Math.Round(currentOwedToMe - currentIOwe, 2)
                 };
             }).ToList();
 
-            var balances = await GetGroupBalanceAsync(groupId, userId);
+            var balances = CalculateBalances(allSplits.Where(s => !s.IsPaid).ToList());
 
             var result = new GroupAnalyticsDto
             {
@@ -183,7 +221,7 @@ namespace Server.Services
                 TotalExpenses = expenses.Count,
                 CategoryBreakdown = categoryBreakdown,
                 MemberContributions = memberContributions,
-                Balances = balances.Data ?? new List<BalanceDto>()
+                Balances = balances
             };
 
             return ServiceResult<GroupAnalyticsDto?>.Ok(result);
@@ -204,65 +242,7 @@ namespace Server.Services
                 .Include(s => s.Expense.PaidBy)
                 .ToListAsync();
 
-            var netDebts = new Dictionary<(Guid debtor, Guid creditor), decimal>();
-
-            foreach(var split in unPaidSplits)
-            {
-                var debtor = split.UserId;
-                var creditor = split.Expense.PaidByUserId;
-
-                if (debtor == creditor) continue;
-                var key = (debtor, creditor);
-                var reverseKey = (creditor, debtor);
-
-                if (netDebts.ContainsKey(reverseKey))
-                {
-                    netDebts[reverseKey] -= split.AmountOwed;
-                    if (netDebts[reverseKey] < 0)
-                    {
-                        netDebts[key] = -netDebts[reverseKey];
-                        netDebts.Remove(reverseKey);
-                    }
-                    else if (netDebts[reverseKey] == 0)
-                    {
-                        netDebts.Remove(reverseKey);
-                    }
-                }
-                else
-                {
-                    netDebts.TryGetValue(key, out decimal existing);
-                    netDebts[key] = existing + split.AmountOwed;
-                }
-            }
-
-            var userIds = netDebts.Keys
-                .SelectMany(k=> new[] {k.debtor, k.creditor})
-                .Distinct().
-                ToList();
-
-            var users = await _db.Users
-                .Where(u => userIds.Contains(u.Id))
-                .ToDictionaryAsync(u => u.Id);
-
-            var results = netDebts
-                .Where(kvp => kvp.Value > 0)
-                .Select(kvp =>
-                {
-                    users.TryGetValue(kvp.Key.debtor, out var from);
-                    users.TryGetValue(kvp.Key.creditor, out var to);
-                    return new BalanceDto
-                    {
-                        FromUserId = kvp.Key.debtor,
-                        FromUserName = from?.Name ?? String.Empty,
-                        FromUserImageUrl = from?.ImageUrl,
-                        ToUserId = kvp.Key.creditor,
-                        ToUserName = to?.Name ?? String.Empty,
-                        ToUserImageUrl = to?.ImageUrl,
-                        Amount = Math.Round(kvp.Value, 2)
-                    };
-                }).ToList();
-
-            return ServiceResult<List<BalanceDto>>.Ok(results);
+            return ServiceResult<List<BalanceDto>>.Ok(CalculateBalances(unPaidSplits));
         }
 
         public async Task<ServiceResult<List<ExpenseDto>>> GetGroupExpenseAsync(Guid groupId, Guid userId)
@@ -273,11 +253,31 @@ namespace Server.Services
 
             var result = await _db.Expenses
                 .Where(e => e.GroupId == groupId)
-                .Include(e => e.PaidBy)
-                .Include(e => e.Splits)
-                .ThenInclude(s => s.User)
                 .OrderByDescending(e => e.Date)
-                .Select(e => MapToExpenseDto(e))
+                .Select(e => new ExpenseDto
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    Description = e.Description,
+                    Amount = e.Amount,
+                    Category = e.Category,
+                    Date = e.Date,
+                    CreatedAt = e.CreatedAt,
+                    PaidByUserId = e.PaidByUserId,
+                    PaidByUser = e.PaidBy != null ? e.PaidBy.Name : string.Empty,
+                    PaidByImageUrl = e.PaidBy != null ? e.PaidBy.ImageUrl : null,
+                    GroupId = e.GroupId,
+                    Splits = e.Splits.Select(s => new ExpenseSplitDto
+                    {
+                        Id = s.Id,
+                        UserId = s.UserId,
+                        Name = s.User != null ? s.User.Name : string.Empty,
+                        UserImageUrl = s.User != null ? s.User.ImageUrl : null,
+                        AmountOwed = s.AmountOwed,
+                        isPaid = s.IsPaid,
+                        PaidAt = s.PaidAt
+                    }).ToList()
+                })
                 .ToListAsync();
 
             return ServiceResult<List<ExpenseDto>>.Ok(result);
@@ -390,9 +390,35 @@ namespace Server.Services
             split.PaidAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync();
+
+            //LOGGING & NOTIFICATIONS
+            var expenseRecord = await _db.Expenses.FirstOrDefaultAsync(e => e.Id == split.ExpenseId);
+            var settler = await _db.Users.FindAsync(userId);
+
+            if (expenseRecord != null && settler != null)
+            {
+                
+                await _loggingService.SendNotificationAsync(
+                    expenseRecord.PaidByUserId,
+                    "Expense Settled",
+                    $"{settler.Name} has settled their share of ₹{split.AmountOwed} for '{expenseRecord.Title}'.",
+                    expenseRecord.GroupId.HasValue ? $"/expenses/group/{expenseRecord.GroupId}" : "/expenses"
+                );
+
+                if (expenseRecord.GroupId.HasValue)
+                {
+                    await _loggingService.LogGroupActivityAsync(
+                        expenseRecord.GroupId.Value,
+                        userId,
+                        "EXPENSE_SETTLED",
+                        $"settled their share of ₹{split.AmountOwed} for '{expenseRecord.Title}'"
+                    );
+                }
+            }
+
+
             return ServiceResult<bool>.Ok(true);
         }
-
 
         private static ExpenseDto MapToExpenseDto(Expense e) => new ExpenseDto
         {
@@ -426,7 +452,7 @@ namespace Server.Services
         }
         private async Task<List<ExpenseSplit>> BuildEqualSplitsAsync(Expense expense, Guid payerId, List<Guid> participantIds)
         {
-            if (expense.GroupId.HasValue)
+            if (expense.GroupId.HasValue && (participantIds == null || participantIds.Count == 0))
             {
                 participantIds = await _db.GroupMembers
                     .Where(m => m.GroupId == expense.GroupId)
@@ -491,6 +517,104 @@ namespace Server.Services
             }).ToList();
 
             return Task.FromResult<List<ExpenseSplit>?>(splits);
+        }
+
+        public async Task<ServiceResult<List<ExpenseDto>>> GetUserExpenseAsync(Guid userId)
+        {
+            var expenses = await _db.Expenses
+                .Where(e => e.PaidByUserId == userId || e.Splits.Any(s => s.UserId == userId))
+                .OrderByDescending(e => e.Date)
+                .Select(e => new ExpenseDto
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    Description = e.Description,
+                    Amount = e.Amount,
+                    Category = e.Category,
+                    Date = e.Date,
+                    CreatedAt = e.CreatedAt,
+                    PaidByUserId = e.PaidByUserId,
+                    PaidByUser = e.PaidBy != null ? e.PaidBy.Name : string.Empty,
+                    PaidByImageUrl = e.PaidBy != null ? e.PaidBy.ImageUrl : null,
+                    GroupId = e.GroupId,
+                    Splits = e.Splits.Select(s => new ExpenseSplitDto
+                    {
+                        Id = s.Id,
+                        UserId = s.UserId,
+                        Name = s.User != null ? s.User.Name : string.Empty,
+                        UserImageUrl = s.User != null ? s.User.ImageUrl : null,
+                        AmountOwed = s.AmountOwed,
+                        isPaid = s.IsPaid,
+                        PaidAt = s.PaidAt
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return ServiceResult<List<ExpenseDto>>.Ok(expenses);
+        }
+
+        private List<BalanceDto> CalculateBalances(IEnumerable<ExpenseSplit> unPaidSplits)
+        {
+            var netDebts = new Dictionary<(Guid debtor, Guid creditor), decimal>();
+
+            foreach(var split in unPaidSplits)
+            {
+                var debtor = split.UserId;
+                var creditor = split.Expense?.PaidByUserId ?? Guid.Empty;
+
+                if (creditor == Guid.Empty || debtor == creditor) continue;
+                var key = (debtor, creditor);
+                var reverseKey = (creditor, debtor);
+
+                if (netDebts.ContainsKey(reverseKey))
+                {
+                    netDebts[reverseKey] -= split.AmountOwed;
+                    if (netDebts[reverseKey] < 0)
+                    {
+                        netDebts[key] = -netDebts[reverseKey];
+                        netDebts.Remove(reverseKey);
+                    }
+                    else if (netDebts[reverseKey] == 0)
+                    {
+                        netDebts.Remove(reverseKey);
+                    }
+                }
+                else
+                {
+                    netDebts.TryGetValue(key, out decimal existing);
+                    netDebts[key] = existing + split.AmountOwed;
+                }
+            }
+
+            var users = unPaidSplits
+                .SelectMany(s => new[] 
+                { 
+                    new { Id = s.UserId, Name = s.User?.Name, ImageUrl = s.User?.ImageUrl },
+                    new { Id = s.Expense?.PaidByUserId ?? Guid.Empty, Name = s.Expense?.PaidBy?.Name, ImageUrl = s.Expense?.PaidBy?.ImageUrl }
+                })
+                .Where(u => u.Id != Guid.Empty)
+                .GroupBy(u => u.Id)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            var results = netDebts
+                .Where(kvp => kvp.Value > 0)
+                .Select(kvp =>
+                {
+                    users.TryGetValue(kvp.Key.debtor, out var from);
+                    users.TryGetValue(kvp.Key.creditor, out var to);
+                    return new BalanceDto
+                    {
+                        FromUserId = kvp.Key.debtor,
+                        FromUserName = from?.Name ?? string.Empty,
+                        FromUserImageUrl = from?.ImageUrl,
+                        ToUserId = kvp.Key.creditor,
+                        ToUserName = to?.Name ?? string.Empty,
+                        ToUserImageUrl = to?.ImageUrl,
+                        Amount = Math.Round(kvp.Value, 2)
+                    };
+                }).ToList();
+
+            return results;
         }
     }
 }

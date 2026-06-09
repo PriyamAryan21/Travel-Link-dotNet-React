@@ -2,10 +2,7 @@
 {
     public class AutoGenerateItineraryDto
     {
-        public Guid GroupId { get; set; }
-        public string Destination { get; set; } = string.Empty;
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public Guid TripId { get; set; }
         public decimal TotalBudget { get; set; }
         public decimal? DailyHotelCostPerRoom { get; set; }
         public int? NumberOfRooms { get; set; }

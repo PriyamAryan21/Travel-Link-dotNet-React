@@ -5,7 +5,9 @@ using Microsoft.IdentityModel.Tokens;
 using Server.Data;
 using Server.Hubs;
 using Server.Services;
+using Server.Middlewares;
 using System.Text;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -23,7 +25,14 @@ builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
 builder.Services.AddScoped<IItineraryService, ItineraryService>();
+builder.Services.AddScoped<ITripService, TripService>();
+builder.Services.AddScoped<ILoggingService, LoggingService>();
 builder.Services.AddHttpClient();
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
 
 
 var cloudinaryConfig = builder.Configuration.GetSection("Cloudinary");
@@ -65,12 +74,59 @@ builder.Services.AddAuthentication(x=>
             }
         };
     });
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddPolicy("ItineraryGenerationPolicy", httpContext =>
+    {
+        var userId = httpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+                     ?? httpContext.Connection.RemoteIpAddress?.ToString()
+                     ?? "unknown";
+
+        return RateLimitPartition.GetFixedWindowLimiter(userId, _ =>
+            new FixedWindowRateLimiterOptions
+            {
+
+                PermitLimit = 1,
+                Window = TimeSpan.FromMinutes(15),
+
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0
+            });
+    });
+
+    options.AddPolicy("AuthPolicy", httpContext =>
+    {
+        var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+        return RateLimitPartition.GetFixedWindowLimiter(ip, _ =>
+            new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromMinutes(5),
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0
+            });
+    });
+
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+
+        await context.HttpContext.Response.WriteAsync("You have reached the limit. A maximum of 1 itinerary generation per 15 minutes is allowed.", cancellationToken: token);
+    };
+});
+
+
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("auth", (policies) =>
     {
+        var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() 
+            ?? new[] { "http://localhost:5173", "https://localhost:5173", "http://localhost:4173" };
+
         policies
-        .WithOrigins("http://localhost:4200", "http://localhost:5173")
+        .WithOrigins(allowedOrigins)
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials();
@@ -105,6 +161,8 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -112,13 +170,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseResponseCompression();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseCors("auth");
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapHub<LocationHub>("/hubs/location");
+app.MapHub<CentralHub>("/hubs/location");
 
-app.Run();
+app.Run(); 

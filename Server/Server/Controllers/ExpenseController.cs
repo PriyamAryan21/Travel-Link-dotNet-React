@@ -18,6 +18,13 @@ namespace Server.Controllers
         }
         private Guid GetUserId() => Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
+        [HttpGet("user")]
+        public async Task<IActionResult> GetUserExpense()
+        {
+            var result = await _expenseService.GetUserExpenseAsync(GetUserId());
+            if (!result.Success) return BadRequest(result.Message = "Could'nt get expenses");
+            return Ok(result);
+        }
 
         [HttpPost("add")]
         public async Task<IActionResult> CreateExpense([FromBody] CreateExpenseDto dto)
@@ -53,6 +60,7 @@ namespace Server.Controllers
             if (!result.Success) return NotFound(result);
             return Ok(result);
         }
+
 
 
         [HttpGet("group/{groupId:guid}/balances")]

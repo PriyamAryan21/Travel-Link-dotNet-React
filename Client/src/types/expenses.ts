@@ -10,11 +10,11 @@ export interface BalanceDto {
 
 export interface CreateExpenseDto {
     title: string;
-    description: string;
+    description?: string;
     amount: number;
     category: string;
     date: string;
-    groupId: string;
+    groupId?: string;
     splitType: string;
     participantIds: string[];
     splits: ExpenseSplitInputDto[];
@@ -51,10 +51,10 @@ export interface ExpenseSplitInputDto {
     amountOwed: number;
 }
 
-export interface GroupAnalysisDto {
+export interface GroupAnalyticsDto {
     totalGroupSpend: number;
     totalSettled: number;
-    totalUnSettled: number;
+    totalUnsettled: number;
     totalExpenses: number;
     categoryBreakdown: CategoryBreakdownDto[];
     memberContributions: MemberContributionDto[];

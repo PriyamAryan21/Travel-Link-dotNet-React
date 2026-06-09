@@ -5,12 +5,15 @@ import App from "./App";
 import { Toaster } from "sonner";
 import { AuthProvider } from "./context/AuthContext";
 import './index.css';
+import { NotificationProvider } from "./context/NotificationContext";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <NotificationProvider>
+          <App />
+        </NotificationProvider>
         <Toaster richColors position="top-right" />
       </AuthProvider>
     </BrowserRouter>

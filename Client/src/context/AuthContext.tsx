@@ -3,11 +3,13 @@ import { toast } from 'sonner';
 import authService from '../services/authService';
 import { setToken, clearToken, getToken } from '../services/api';
 import type { LoginDto, RegisterDto } from '../types';
+import userService from '../services/userService';
 
 interface AuthUser {
     userId: string;
     name: string;
     email: string;
+    imageUrl?: string | null;
 }
 
 interface AuthContextType {
@@ -17,6 +19,7 @@ interface AuthContextType {
     login: (dto: LoginDto) => Promise<void>;
     register: (dto: RegisterDto) => Promise<void>;
     logout: () => void;
+    updateUser: (updates: Partial<AuthUser>) => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -30,9 +33,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const stored = localStorage.getItem('tl_user');
         if (token && stored) {
             try {
-                setUser(JSON.parse(stored));
-            }
-            catch {
+                const parsed = JSON.parse(stored);
+                setUser(parsed);
+                // Fetch fresh profile to get imageUrl
+                userService.getProfile().then((profile) => {
+                    const updated = { ...parsed, imageUrl: profile.imageUrl };
+                    setUser(updated);
+                    localStorage.setItem('tl_user', JSON.stringify(updated));
+                }).catch(() => { /* silently fail — user still has basic data */ });
+            } catch {
                 clearToken();
                 localStorage.removeItem('tl_user');
             }
@@ -56,10 +65,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const authUser: AuthUser = {
             userId: res.userId,
             name: res.name,
-            email: res.email
+            email: res.email,
+            imageUrl: res.imageUrl ?? null
         };
         localStorage.setItem('tl_user', JSON.stringify(authUser));
         setUser(authUser);
+        userService.getProfile().then((profile) => {
+            const updated = { ...authUser, imageUrl: profile.imageUrl };
+            setUser(updated);
+            localStorage.setItem('tl_user', JSON.stringify(updated));
+        }).catch(() => { });
         toast.success(`Welcome back, ${res.name}!`);
     }, []);
 
@@ -69,7 +84,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const authUser: AuthUser = {
             userId: res.userId,
             name: res.name,
-            email: res.email
+            email: res.email,
+            imageUrl: res.imageUrl ?? null
         };
         localStorage.setItem('tl_user', JSON.stringify(authUser));
         setUser(authUser);
@@ -83,6 +99,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         toast.success('Logged out successfully.');
     }, [])
 
+    const updateUser = useCallback((updates: Partial<AuthUser>) => {
+        setUser(prev => {
+            if (!prev) return prev;
+            const updated = { ...prev, ...updates };
+            localStorage.setItem('tl_user', JSON.stringify(updated));
+            return updated;
+        });
+    }, []);
+
     return (
         <AuthContext.Provider
             value={{
@@ -91,7 +116,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 isLoading,
                 login,
                 register,
-                logout
+                logout,
+                updateUser
             }}
         >
             {children}

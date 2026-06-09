@@ -1,4 +1,4 @@
-using Azure.Core;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Server.Common;
@@ -16,24 +16,27 @@ namespace Server.Services
         private readonly AppDbContext _db;
         private readonly IConfiguration _config;
         private readonly HttpClient _http;
+        private readonly ILoggingService _loggingService;
 
-        public ItineraryService(AppDbContext db, IConfiguration config, IHttpClientFactory httpClientFactory)
+        public ItineraryService(AppDbContext db, IConfiguration config, IHttpClientFactory httpClientFactory, ILoggingService loggingService)
         {
             _db = db;
             _config = config;
             _http = httpClientFactory.CreateClient();
+            _loggingService = loggingService;
         }
 
         public async Task<ServiceResult<SuggestionDto>> AddSuggestionAsync(Guid userId, Guid requestId, AddSuggestionDto dto)
         {
             var request = await _db.ItineraryRequests
-                .FindAsync(requestId);
+                .Include(r => r.Trip)       
+                .FirstOrDefaultAsync(r => r.Id == requestId);
 
             if (request == null) return ServiceResult<SuggestionDto>.Fail("Itinerary request not found.");
             if (request.Status != "Open") return ServiceResult<SuggestionDto>.Fail("This itinerary is no longer accepting suggestions.");
 
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == request.Trip.GroupId && m.UserId == userId);
 
             if(!isMember) return ServiceResult<SuggestionDto>.Fail("You are not a member of this group.");
 
@@ -49,6 +52,15 @@ namespace Server.Services
             var user = await _db.Users.FindAsync(userId);
             _db.PlaceSuggestions.Add(suggestion);
             await _db.SaveChangesAsync();
+
+            // LOGGING
+            await _loggingService.LogGroupActivityAsync(
+                request.Trip.GroupId,
+                userId,
+                "SUGGESTION_ADDED",
+                $"suggested '{dto.Name}' ({dto.Type}) for {request.Trip.Destination}"
+            );
+
 
             var result = new SuggestionDto
             {
@@ -69,19 +81,18 @@ namespace Server.Services
 
         public async Task<ServiceResult<Guid>> CreateRequestAsync(Guid userId, CreateItineraryRequestDto dto)
         {
+            var trip = await _db.Trips.FindAsync(dto.TripId);
+
             var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == dto.GroupId 
-                && m.UserId == userId 
-                && m.Role == "Admin");
+                .AnyAsync(m => m.GroupId == trip!.GroupId && m.UserId == userId && m.Role == "Admin");
 
             if (!isAdmin) return ServiceResult<Guid>.Fail("Only group admins can create an Itinerary request.");
 
             var existing = await _db.ItineraryRequests
-                .AnyAsync(r => r.GroupId == dto.GroupId);
+                .AnyAsync(r => r.TripId == dto.TripId);
 
             if (existing) return ServiceResult<Guid>.Fail("This group already has an active itinerary request. Delete it first to create a new one.");
-            if (dto.StartDate.Date >= dto.EndDate.Date) return ServiceResult<Guid>.Fail("End date must be after start date");
-            var memberCount = await _db.GroupMembers.CountAsync(m => m.GroupId == dto.GroupId);
+            var memberCount = await _db.GroupMembers.CountAsync(m => m.GroupId == trip!.GroupId);
 
             int? vehicleCount = dto.VehicleCount;
             if(vehicleCount == null && !string.IsNullOrEmpty(dto.VehicleType) && dto.VehicleType != "None")
@@ -99,13 +110,10 @@ namespace Server.Services
 
             var request = new ItineraryRequest
             {
-                GroupId = dto.GroupId,
+                TripId = dto.TripId,
                 CreatedByUserId = userId,
-                Destination = dto.Destination,
                 DailyHotelCostPerRoom = dto.DailyHotelCostPerRoom,
                 NumberOfRooms = dto.NumberOfRooms,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
                 TotalBudget = dto.TotalBudget,
                 GroupSize = memberCount,
                 VehicleType = dto.VehicleType,
@@ -118,6 +126,15 @@ namespace Server.Services
             _db.ItineraryRequests.Add(request);
             await _db.SaveChangesAsync();
 
+            // LOGGING
+            await _loggingService.LogGroupActivityAsync(
+                trip.GroupId,
+                userId,
+                "ITINERARY_REQUEST_CREATED",
+                $"opened an itinerary request for {trip.Destination}"
+            );
+
+
             return ServiceResult<Guid>.Ok(request.Id);
         }
 
@@ -127,12 +144,14 @@ namespace Server.Services
 
             if (suggestion == null) return ServiceResult<bool>.Fail("Suggestion not found.");
 
-            var request = await _db.ItineraryRequests.FindAsync(suggestion.ItineraryRequestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == suggestion.ItineraryRequestId);
 
             if (request == null) return ServiceResult<bool>.Fail("Associated itinerary not found");
 
             var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId && m.Role == "Admin");
+                .AnyAsync(m => m.GroupId == request.Trip.GroupId && m.UserId == userId && m.Role == "Admin");
 
             if (suggestion.SuggestedByUserId != userId && !isAdmin) return ServiceResult<bool>.Fail("You can only delete your own suggestions.");
 
@@ -144,11 +163,13 @@ namespace Server.Services
 
         public async Task<ServiceResult<ItineraryResultDto>> GenerateItineraryAsync(Guid userId, Guid requestId, GenerateItineraryDto dto)
         {
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == requestId);
             if (request == null) return ServiceResult<ItineraryResultDto>.Fail("Itinerary request not found.");
 
             var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId && m.Role == "Admin");
+                .AnyAsync(m => m.GroupId == request.Trip.GroupId && m.UserId == userId && m.Role == "Admin");
 
             if (!isAdmin) return ServiceResult<ItineraryResultDto>.Fail("Only group admins can generate the itinerary.");
 
@@ -186,18 +207,121 @@ namespace Server.Services
                 await _db.SaveChangesAsync();
                 return ServiceResult<ItineraryResultDto>.Fail(ex.Message);
             }
+
             var result = await GetItineraryResultAsync(userId, requestId);
             if (result.Success) result.Data.ReplacedExisting = replacedExisting;
+
+            // LOGGING & NOTIFICATIONS
+            var groupMembers = await _db.GroupMembers.Where(m => m.GroupId == request.Trip.GroupId && m.UserId != userId).ToListAsync();
+            foreach (var member in groupMembers)
+            {
+                await _loggingService.SendNotificationAsync(
+                    member.UserId,
+                    "Itinerary Ready! 🎉",
+                    $"The AI has finished building the itinerary for {request.Trip.Destination}.",
+                    $"/trips/{request.Trip.Id}/itinerary/{requestId}/result"
+                );
+            }
+            await _loggingService.LogGroupActivityAsync(request.Trip.GroupId, userId, "ITINERARY_GENERATED", $"generated the final itinerary for {request.Trip.Destination}");
+            
+
             return result;
+        }
+        public async Task<ServiceResult<ItineraryResultDto>> AutoGenerateItineraryAsync(
+    Guid userId, AutoGenerateItineraryDto dto)
+        {
+            var trip = await _db.Trips.FindAsync(dto.TripId);
+            var isAdmin = await _db.GroupMembers
+                .AnyAsync(m => m.GroupId == trip.GroupId && m.UserId == userId && m.Role == "Admin");
+            if (!isAdmin) return ServiceResult<ItineraryResultDto>.Fail("Only group admins can generate an itinerary.");
+            var existingRequest = await _db.ItineraryRequests
+                .FirstOrDefaultAsync(r => r.TripId == dto.TripId);
+            bool replacedExisting = existingRequest != null;
+            if (existingRequest != null)
+            {
+                await DeleteRequestCoreAsync(existingRequest.Id);
+            }
+            var memberCount = await _db.GroupMembers.CountAsync(m => m.GroupId == trip!.GroupId);
+
+            int? vehicleCount = dto.VehicleCount;
+            if (vehicleCount == null && !string.IsNullOrEmpty(dto.VehicleType) && dto.VehicleType != "None")
+            {
+                vehicleCount = dto.VehicleType switch {
+                    "Scooty" or "Bike" => (int)Math.Ceiling(memberCount / 2.0),
+                    "Car" => (int)Math.Ceiling(memberCount / 4.0),
+                    "SUV" => (int)Math.Ceiling(memberCount / 7.0),
+                    "Traveller" => 1,
+                    _ => null
+                };  
+            }
+
+            var request = new ItineraryRequest
+            {
+                TripId = dto.TripId,
+                CreatedByUserId = userId,
+                TotalBudget = dto.TotalBudget,
+                GroupSize = memberCount,
+                DailyHotelCostPerRoom = dto.DailyHotelCostPerRoom,
+                NumberOfRooms = dto.NumberOfRooms,
+                VehicleType = dto.VehicleType,
+                VehicleCount = vehicleCount,
+                IsRental = dto.IsRental,
+                DailyRentalCostPerVehicle = dto.DailyRentalCostPerVehicle,
+                DailyFuelCostPerVehicle = dto.DailyFuelCostPerVehicle,
+                Status = "Generating"
+            };
+            _db.ItineraryRequests.Add(request);
+            await _db.SaveChangesAsync();
+            try
+            {
+                await RunGenerationAsync(request, dto.Note);
+                _db.ChangeTracker.Clear();
+            }
+            catch (Exception ex)
+            {
+                request.Status = "Open";
+                await _db.SaveChangesAsync();
+                return ServiceResult<ItineraryResultDto>.Fail(ex.Message);
+            }
+            var result = await GetItineraryResultAsync(userId, request.Id);
+            if (result.Success)
+            {
+                result.Data!.ReplacedExisting = replacedExisting;
+
+                //LOGGING & NOTIFICATIONS 
+                var groupMembers = await _db.GroupMembers.Where(m => m.GroupId == trip.GroupId && m.UserId != userId).ToListAsync();
+                foreach (var member in groupMembers)
+                {
+                    await _loggingService.SendNotificationAsync(
+                        member.UserId,
+                        "Auto-Itinerary Ready! 🚀",
+                        $"An auto-generated itinerary for {trip.Destination} is ready to view.",
+                        $"/trips/{trip.Id}/itinerary/{request.Id}/result"
+                    );
+                }
+                await _loggingService.LogGroupActivityAsync(trip.GroupId, userId, "ITINERARY_AUTO_GENERATED", $"auto-generated the itinerary for {trip.Destination}");
+              
+            }
+
+
+            return result;
+            
         }
 
         public async Task<ServiceResult<ItineraryResultDto>> GetItineraryResultAsync(Guid userId, Guid requestId)
         {
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == requestId);
+
             if (request == null) return ServiceResult<ItineraryResultDto>.Fail("Itinerary request not found.");
 
+
+            var trip = await _db.Trips.FindAsync(request.TripId);
+            if (trip == null) return ServiceResult<ItineraryResultDto>.Fail("Trip not found.");
+
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == trip.GroupId && m.UserId == userId);
             if (!isMember) return ServiceResult<ItineraryResultDto>.Fail("You are not a member of this group.");
 
             var itinerary = await _db.GeneratedItineraries
@@ -242,9 +366,9 @@ namespace Server.Services
             {
                 Id = itinerary.Id,
                 RequestId = requestId,
-                Destination = request.Destination,
-                StartDate = request.StartDate,
-                EndDate = request.EndDate,
+                Destination = trip.Destination,
+                StartDate = trip.StartDate,
+                EndDate = trip.EndDate,
                 GeneratedAt = itinerary.GeneratedAt,
                 TotalDays = totalDays,
                 GroupSize = groupSize,
@@ -291,11 +415,13 @@ namespace Server.Services
 
         public async Task<ServiceResult<List<SuggestionDto>>> GetSuggestionsAsync(Guid userId, Guid requestId)
         {
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == requestId);
             if (request == null) return ServiceResult<List<SuggestionDto>>.Fail("Itinerary request not found.");
 
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == request.Trip.GroupId && m.UserId == userId);
             if(!isMember) return ServiceResult<List<SuggestionDto>>.Fail("You are not a member of this group.");
 
             var suggestions = await _db.PlaceSuggestions
@@ -328,15 +454,26 @@ namespace Server.Services
             var suggestion = await _db.PlaceSuggestions.FindAsync(suggestionId);
             if (suggestion == null) return ServiceResult<bool>.Fail("Suggestion not found.");
 
-            var request = await _db.ItineraryRequests.FindAsync(suggestion.ItineraryRequestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == suggestion.ItineraryRequestId);
 
             var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request!.GroupId && m.UserId == userId && m.Role == "Admin");
+                .AnyAsync(m => m.GroupId == request!.Trip.GroupId && m.UserId == userId && m.Role == "Admin");
 
             if (!isAdmin) return ServiceResult<bool>.Fail("Only group admins can review suggestions.");
 
             suggestion.AdminApproved = dto.AdminApproved;
             await _db.SaveChangesAsync();
+
+            // --- LOGGING ---
+            await _loggingService.LogGroupActivityAsync(
+                request!.Trip.GroupId,
+                userId,
+                "SUGGESTION_REVIEWED",
+                $"{(dto.AdminApproved == true ? "approved" : "rejected")} the suggestion: '{suggestion.Name}'"
+            );
+
 
             return ServiceResult<bool>.Ok(true);
         }
@@ -351,24 +488,37 @@ namespace Server.Services
             if (item == null) return ServiceResult<bool>.Fail("Item not found.");
 
             var requestId = item.Day.Itinerary.ItineraryRequestId;
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests.Include(r => r.Trip).FirstOrDefaultAsync(r => r.Id == requestId);
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request!.GroupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == request!.Trip.GroupId && m.UserId == userId);
             if (!isMember) return ServiceResult<bool>.Fail("You are not a member of this group.");
 
             item.IsCompleted = !item.IsCompleted;
             await _db.SaveChangesAsync();
 
+            // --- LOGGING ---
+            await _loggingService.LogGroupActivityAsync(
+                request!.Trip.GroupId,
+                userId,
+                "ITEM_TOGGLED",
+                $"marked '{item.PlaceName}' as {(item.IsCompleted ? "Completed" : "Pending")}"
+            );
+
+
             return ServiceResult<bool>.Ok(item.IsCompleted);
         }
-        public async Task<ServiceResult<GroupItineraryStatusDto?>> GetGroupItineraryStatusAsync(Guid userId, Guid groupId)
+        public async Task<ServiceResult<GroupItineraryStatusDto?>> GetTripItineraryStatusAsync(Guid userId, Guid tripId)
         {
+            var trip = await _db.Trips.FindAsync(tripId);
+
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == groupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == trip!.GroupId && m.UserId == userId);
             if (!isMember) return ServiceResult<GroupItineraryStatusDto?>.Fail("You are not a member of this group.");
 
             var request = await _db.ItineraryRequests
-                .FirstOrDefaultAsync(r => r.GroupId == groupId);
+                .FirstOrDefaultAsync(r => r.TripId == tripId);
+            var isAdmin = await _db.GroupMembers
+                .AnyAsync(m => m.GroupId == trip!.GroupId && m.UserId == userId && m.Role == "Admin");
 
             if (request == null) return ServiceResult<GroupItineraryStatusDto?>.Ok(null); // no request yet
 
@@ -380,13 +530,14 @@ namespace Server.Services
             return ServiceResult<GroupItineraryStatusDto?>.Ok(new GroupItineraryStatusDto
             {
                 RequestId = request.Id,
-                Destination = request.Destination,
-                StartDate = request.StartDate,
-                EndDate = request.EndDate,
+                Destination = trip!.Destination,
+                StartDate = trip!.StartDate,
+                EndDate = trip!.EndDate,
                 TotalBudget = request.TotalBudget,
                 Status = request.Status,
                 TotalSuggestions = totalSuggestions,
-                ApprovedSuggestions = approvedSuggestions
+                ApprovedSuggestions = approvedSuggestions,
+                IsAdmin = isAdmin
             });
         }
         public async Task<ServiceResult<bool>> ToggleVoteAsync(Guid userId, Guid suggestionId)
@@ -394,9 +545,11 @@ namespace Server.Services
             var suggestion = await _db.PlaceSuggestions.FindAsync(suggestionId);
             if (suggestion == null) return ServiceResult<bool>.Fail("Suggestion not found.");
 
-            var request = await _db.ItineraryRequests.FindAsync(suggestion!.ItineraryRequestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r=> r.Id == suggestion!.ItineraryRequestId);
             var isMember = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request!.GroupId && m.UserId == userId);
+                .AnyAsync(m => m.GroupId == request!.Trip.GroupId && m.UserId == userId);
             if (!isMember) return ServiceResult<bool>.Fail("You are not the member of this group.");
 
             var existingVote = await _db.SuggestionVotes
@@ -422,15 +575,67 @@ namespace Server.Services
 
         public async Task<ServiceResult<bool>> DeleteItineraryRequestAsync(Guid userId, Guid requestId)
         {
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)   
+                .FirstOrDefaultAsync(r => r.Id == requestId);
             if (request == null) return ServiceResult<bool>.Fail("Itinerary request not found.");
 
             var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == request.GroupId && m.UserId == userId && m.Role == "Admin");
-
+                .AnyAsync(m => m.GroupId == request!.Trip.GroupId && m.UserId == userId && m.Role == "Admin");
             if (!isAdmin) return ServiceResult<bool>.Fail("Only group admins can delete an itinerary request.");
 
             await DeleteRequestCoreAsync(requestId);
+
+            var destination = request.Trip.Destination;
+            var groupId = request.Trip.GroupId;
+
+            await DeleteRequestCoreAsync(requestId);
+
+            // --- LOGGING ---
+            await _loggingService.LogGroupActivityAsync(
+                groupId,
+                userId,
+                "ITINERARY_DELETED",
+                $"deleted the itinerary request for {destination}"
+            );
+
+            return ServiceResult<bool>.Ok(true);
+        }
+
+        public async Task<ServiceResult<bool>> DeleteGeneratedItineraryAsync(Guid userId, Guid requestId)
+        {
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == requestId);
+            
+            if (request == null) return ServiceResult<bool>.Fail("Itinerary request not found.");
+
+            var isAdmin = await _db.GroupMembers
+                .AnyAsync(m => m.GroupId == request.Trip.GroupId && m.UserId == userId && m.Role == "Admin");
+            if (!isAdmin) return ServiceResult<bool>.Fail("Only group admins can delete the generated itinerary.");
+
+            var itinerary = await _db.GeneratedItineraries
+                .Include(g => g.Days).ThenInclude(d => d.Items)
+                .FirstOrDefaultAsync(g => g.ItineraryRequestId == requestId);
+
+            if (itinerary != null)
+            {
+                foreach (var day in itinerary.Days) _db.ItineraryItems.RemoveRange(day.Items);
+                _db.ItineraryDays.RemoveRange(itinerary.Days);
+                _db.GeneratedItineraries.Remove(itinerary);
+            }
+
+            request.Status = "Open";
+            await _db.SaveChangesAsync();
+
+            // --- LOGGING ---
+            await _loggingService.LogGroupActivityAsync(
+                request.Trip.GroupId,
+                userId,
+                "GENERATED_ITINERARY_DELETED",
+                $"deleted the generated itinerary for {request.Trip.Destination} to allow new suggestions"
+            );
+
             return ServiceResult<bool>.Ok(true);
         }
         private async Task RunGenerationAsync(ItineraryRequest request, string? note)
@@ -438,7 +643,7 @@ namespace Server.Services
             string weatherSummary = "Weather data unavailable";
             try
             {
-                var geoUrl = $"https://geocoding-api.open-meteo.com/v1/search?name={Uri.EscapeDataString(request.Destination)}&count=1&language=en&format=json";
+                var geoUrl = $"https://geocoding-api.open-meteo.com/v1/search?name={Uri.EscapeDataString(request.Trip.Destination)}&count=1&language=en&format=json";
                 var geoResponse = await _http.GetStringAsync(geoUrl);
                 var geoDoc = JsonDocument.Parse(geoResponse);
                 var results = geoDoc.RootElement.GetProperty("results");
@@ -449,8 +654,8 @@ namespace Server.Services
                     double lat = place.GetProperty("latitude").GetDouble();
                     double lon = place.GetProperty("longitude").GetDouble();
 
-                    string startStr = request.StartDate.ToString("yyyy-MM-dd");
-                    string endStr = request.EndDate.ToString("yyyy-MM-dd");
+                    string startStr = request.Trip.StartDate.ToString("yyyy-MM-dd");
+                    string endStr = request.Trip.EndDate.ToString("yyyy-MM-dd");
 
                     var weatherUrl = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&start_date={startStr}&end_date={endStr}&timezone=auto";
 
@@ -479,7 +684,7 @@ namespace Server.Services
                 .OrderByDescending(s => s.AdminApproved == true)
                 .ThenByDescending(s => _db.SuggestionVotes.Count(v => v.SuggestionId == s.Id))
                 .ToListAsync();
-            var totalDays = Math.Max(1, (int)(request.EndDate.Date - request.StartDate.Date).TotalDays + 1);
+            var totalDays = Math.Max(1, (int)(request.Trip.EndDate.Date - request.Trip.StartDate.Date).TotalDays + 1);
 
             int vehicleCount = request.VehicleCount ?? 1;
             decimal dailyRental = (request.DailyRentalCostPerVehicle ?? 0) * vehicleCount;
@@ -491,7 +696,7 @@ namespace Server.Services
             decimal tripHotelCost = dailyHotelCost * numberOfNights;
             decimal remainingBudget = request.TotalBudget - tripVehicleCost - tripHotelCost;
             int groupSize = request.GroupSize > 0 ? request.GroupSize : 1;
-            decimal avgPerPersonPerDay = remainingBudget > 0 ? Math.Round(remainingBudget / groupSize / totalDays, 0) : 0;
+            decimal avgPerPerson = remainingBudget > 0 ? Math.Round(remainingBudget / groupSize) : 0;
 
             string vehicleContext;
             if (string.IsNullOrEmpty(request.VehicleType) || request.VehicleType == "None")
@@ -518,11 +723,11 @@ namespace Server.Services
             string prompt = $@"You are a travel itinerary planner. Build a realistic day-by-day itinerary in JSON only — no markdown, no explanation, no code fences.
 
 Trip Details:
-- Destination: {request.Destination}
-- Duration: {totalDays} days ({request.StartDate:yyyy-MM-dd} to {request.EndDate:yyyy-MM-dd})
+- Destination: {request.Trip.Destination}
+- Duration: {totalDays} days ({request.Trip.StartDate:yyyy-MM-dd} to {request.Trip.EndDate:yyyy-MM-dd})
 - Group size: {groupSize} people
 - Total budget for the trip: ₹{request.TotalBudget}
-- Budget available for activities (after vehicle costs): ₹{remainingBudget} (≈₹{avgPerPersonPerDay}/person/day)
+- Budget available for activities (after vehicle costs): ₹{remainingBudget} (≈₹{avgPerPerson}/person)
 - Weather forecast: {weatherSummary}
 
 Transport:
@@ -574,8 +779,8 @@ Respond with ONLY this JSON shape:
 
 
             var apiKey = _config["Gemini:ApiKey"];
-            var model = _config["Gemini:Model"] ?? "gemini-1.5-flash";
-            var geminiUrl = $"https://generativelanguage.googleapis.com/v1/models/{model}:generateContent?key={apiKey}";
+            var model = _config["Gemini:Model"] ?? "gemini-2.5-flash";
+            var geminiUrl = $"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={apiKey}";
 
             var requestBody = new
             {
@@ -585,10 +790,41 @@ Respond with ONLY this JSON shape:
                 }
             };
 
-            var json = JsonSerializer.Serialize(requestBody);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            int maxRetries = 5;
+            int delayMs = 5000;
+            HttpResponseMessage geminiResponse = null!;
 
-            var geminiResponse = await _http.PostAsync(geminiUrl, content);
+            string[] modelsToTry = { _config["Gemini:Model"] ?? "gemini-2.5-flash", "gemini-flast-laatest" };
+
+            foreach (var currentModel in modelsToTry.Distinct())
+            {
+                var currentGeminiUrl = $"https://generativelanguage.googleapis.com/v1/models/{currentModel}:generateContent?key={apiKey}";
+                delayMs = 3000; 
+
+                for (int i = 0; i < maxRetries; i++)
+                {
+                    var jsonContent = JsonSerializer.Serialize(requestBody);
+                    var stringContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                    geminiResponse = await _http.PostAsync(currentGeminiUrl, stringContent);
+
+                    if (geminiResponse.IsSuccessStatusCode) break;
+
+                    if ((geminiResponse.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable ||
+                         geminiResponse.StatusCode == System.Net.HttpStatusCode.TooManyRequests) && i < maxRetries - 1)
+                    {
+                        await Task.Delay(delayMs);
+                        delayMs += 2000; 
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+
+                if (geminiResponse.IsSuccessStatusCode) break;
+            }
+
 
             if (!geminiResponse.IsSuccessStatusCode)
             {
@@ -609,18 +845,31 @@ Respond with ONLY this JSON shape:
                 .GetString()!;
 
             var cleanedText = rawText.Trim();
-            if (cleanedText.StartsWith("```"))
+            var firstBrace = cleanedText.IndexOf('{');
+            var lastBrace = cleanedText.LastIndexOf('}');
+            if(firstBrace >= 0 && lastBrace > firstBrace)
             {
-                var firsrNewLine = cleanedText.IndexOf('\n');
-                if (firsrNewLine >= 0) cleanedText = cleanedText[(firsrNewLine + 1)..];
-                var lastFence = cleanedText.LastIndexOf("```");
-                if (lastFence >= 0) cleanedText = cleanedText[..lastFence];
-
-                cleanedText = cleanedText.Trim();
-
+                cleanedText = cleanedText.Substring(firstBrace, lastBrace - firstBrace + 1);
             }
 
-            var parsed = JsonDocument.Parse(cleanedText).RootElement;
+            var jsonOptions = new JsonDocumentOptions
+            {
+                AllowTrailingCommas = true
+            };
+
+            var parsed = JsonDocument.Parse(cleanedText, jsonOptions).RootElement;
+            //if (cleanedText.StartsWith("```"))
+            //{
+            //    var firsrNewLine = cleanedText.IndexOf('\n');
+            //    if (firsrNewLine >= 0) cleanedText = cleanedText[(firsrNewLine + 1)..];
+            //    var lastFence = cleanedText.LastIndexOf("```");
+            //    if (lastFence >= 0) cleanedText = cleanedText[..lastFence];
+
+            //    cleanedText = cleanedText.Trim();
+
+            //}
+
+            //var parsed = JsonDocument.Parse(cleanedText).RootElement;
             var daysArr = parsed.GetProperty("days");
             string? droppedJson = null;
             if (parsed.TryGetProperty("dropped_suggestions", out var droppedEl)) droppedJson = droppedEl.GetRawText();
@@ -647,7 +896,7 @@ Respond with ONLY this JSON shape:
                 {
                     ItineraryId = itinerary.Id,
                     DayNumber = dayEl.TryGetProperty("day_number", out var dn) ? dn.GetInt32() : dayCounter,
-                    Date = dayEl.TryGetProperty("date", out var dt) ? DateTime.Parse(dt.GetString()!) : request.StartDate.AddDays(dayCounter - 1),
+                    Date = dayEl.TryGetProperty("date", out var dt) ? DateTime.Parse(dt.GetString()!) : request.Trip.StartDate.AddDays(dayCounter - 1),
                     Title = dayTitle,
                     WeatherNote = dayEl.TryGetProperty("weather_note", out var wn) ? wn.GetString() : null
                 };
@@ -679,75 +928,6 @@ Respond with ONLY this JSON shape:
             await _db.SaveChangesAsync();
         }
 
-        public async Task<ServiceResult<ItineraryResultDto>> AutoGenerateItineraryAsync(
-    Guid userId, AutoGenerateItineraryDto dto)
-        {
-            var isAdmin = await _db.GroupMembers
-                .AnyAsync(m => m.GroupId == dto.GroupId && m.UserId == userId && m.Role == "Admin");
-            if (!isAdmin) return ServiceResult<ItineraryResultDto>.Fail("Only group admins can generate an itinerary.");
-            if (dto.EndDate.Date <= dto.StartDate.Date)
-                return ServiceResult<ItineraryResultDto>.Fail("End date must be after start date.");
-            var existingRequest = await _db.ItineraryRequests
-                .FirstOrDefaultAsync(r => r.GroupId == dto.GroupId);
-            bool replacedExisting = existingRequest != null;
-            if (existingRequest != null)
-            {
-                await DeleteRequestCoreAsync(existingRequest.Id);
-            }
-            var memberCount = await _db.GroupMembers.CountAsync(m => m.GroupId == dto.GroupId);
-
-            int? vehicleCount = dto.VehicleCount;
-            if (vehicleCount == null && !string.IsNullOrEmpty(dto.VehicleType) && dto.VehicleType != "None")
-            {
-                vehicleCount = dto.VehicleType switch {
-                    "Scooty" or "Bike" => (int)Math.Ceiling(memberCount / 2.0),
-                    "Car" => (int)Math.Ceiling(memberCount / 4.0),
-                    "SUV" => (int)Math.Ceiling(memberCount / 7.0),
-                    "Traveller" => 1,
-                    _ => null
-                };  
-            }
-
-            var request = new ItineraryRequest
-            {
-                GroupId = dto.GroupId,
-                CreatedByUserId = userId,
-                Destination = dto.Destination,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
-                TotalBudget = dto.TotalBudget,
-                GroupSize = memberCount,
-                DailyHotelCostPerRoom = dto.DailyHotelCostPerRoom,
-                NumberOfRooms = dto.NumberOfRooms,
-                VehicleType = dto.VehicleType,
-                VehicleCount = vehicleCount,
-                IsRental = dto.IsRental,
-                DailyRentalCostPerVehicle = dto.DailyRentalCostPerVehicle,
-                DailyFuelCostPerVehicle = dto.DailyFuelCostPerVehicle,
-                Status = "Generating"
-            };
-            _db.ItineraryRequests.Add(request);
-            await _db.SaveChangesAsync();
-            try
-            {
-                await RunGenerationAsync(request, dto.Note);
-                _db.ChangeTracker.Clear();
-            }
-            catch (Exception ex)
-            {
-                request.Status = "Open";
-                await _db.SaveChangesAsync();
-                return ServiceResult<ItineraryResultDto>.Fail(ex.Message);
-            }
-            var result = await GetItineraryResultAsync(userId, request.Id);
-            if (result.Success)
-            {
-                result.Data!.ReplacedExisting = replacedExisting;
-            }
-
-            return result;
-            
-        }
 
         private async Task DeleteRequestCoreAsync(Guid requestId)
         {
@@ -780,12 +960,65 @@ Respond with ONLY this JSON shape:
                 _db.GeneratedItineraries.Remove(itinerary);
             }
 
-            var request = await _db.ItineraryRequests.FindAsync(requestId);
+            var request = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                .FirstOrDefaultAsync(r => r.Id == requestId);
             if (request != null) _db.ItineraryRequests.Remove(request);
 
             await _db.SaveChangesAsync();
         }
 
+        public async Task<ServiceResult<List<UserItinerarySummaryDto>>> GetItinerariesByUserAsync(Guid userId)
+        {
+            var userMemberships = await _db.GroupMembers
+                .Where(m => m.UserId == userId)
+                .ToDictionaryAsync(m => m.GroupId, m => m.Role);
 
+            var userGroupIds = userMemberships.Keys.ToList();
+
+            var requests = await _db.ItineraryRequests
+                .Include(r => r.Trip)
+                    .ThenInclude(t => t.Group)
+                .Where(r => userGroupIds.Contains(r.Trip.GroupId))
+                .ToListAsync();
+
+            var requestIds = requests.Select(r => r.Id).ToList();
+            var generatedItineraries = await _db.GeneratedItineraries
+                .Where(g => requestIds.Contains(g.ItineraryRequestId))
+                .ToDictionaryAsync(g => g.ItineraryRequestId);
+
+            var suggestionsGrouped = await _db.PlaceSuggestions
+                .Where(s => requestIds.Contains(s.ItineraryRequestId))
+                .GroupBy(s => s.ItineraryRequestId)
+                .ToDictionaryAsync(g => g.Key, g => new {
+                    Total = g.Count(),
+                    Approved = g.Count(s => s.AdminApproved == true)
+                });
+
+            var result = requests.Select(r => {
+                suggestionsGrouped.TryGetValue(r.Id, out var suggs);
+                return new UserItinerarySummaryDto
+                {
+                    RequestId = r.Id,
+                    TripId = r.TripId,
+                    GroupId = r.Trip.GroupId,
+                    GroupName = r.Trip.Group?.Name ?? "Unknown Group",
+                    Destination = r.Trip.Destination,
+                    StartDate = r.Trip.StartDate,
+                    EndDate = r.Trip.EndDate,
+                    Status = r.Status,
+                    ItineraryId = generatedItineraries.TryGetValue(r.Id, out var gen) ? gen.Id : Guid.Empty,
+                    GeneratedAt = generatedItineraries.TryGetValue(r.Id, out var gen2) ? gen2.GeneratedAt : null,
+                    TotalBudget = r.TotalBudget,
+                    TotalSuggestions = suggs?.Total ?? 0,
+                    ApprovedSuggestions = suggs?.Approved ?? 0,
+                    IsAdmin = userMemberships.TryGetValue(r.Trip.GroupId, out var role) && role == "Admin"
+                };
+            })
+            .OrderByDescending(x => x.StartDate)
+            .ToList();
+
+            return ServiceResult<List<UserItinerarySummaryDto>>.Ok(result);
+        }
     }
 }
