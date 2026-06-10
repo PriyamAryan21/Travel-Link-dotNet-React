@@ -178,6 +178,8 @@ app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/api/health", () => Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
+
 app.MapControllers();
 app.MapHub<CentralHub>("/hubs/location");
 
