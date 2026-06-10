@@ -52,10 +52,7 @@ export default function DashboardPage() {
         if (hour < 17) return 'Good afternoon';
         return 'Good evening';
     };
-    console.log("Friend Requests:" + friendRequests);
-    console.log("Groups:" + groups);
-    console.log("Trips:" + trips);
-    console.log("Loading:" + loading);
+
     // ── Filter upcoming trips (endDate > today), sort nearest first ──
     const upcomingTrips = trips
         .filter(t => new Date(t.endDate) >= new Date())

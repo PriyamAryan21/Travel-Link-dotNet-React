@@ -20,6 +20,7 @@ import {
     Car,
     Fuel,
     Trash2,
+    IndianRupee,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import './trips.css';
@@ -321,8 +322,7 @@ function CreateItineraryModal({
                 <form onSubmit={handleSubmit} className="modal-form">
                     {/* Budget */}
                     <div className="form-group">
-                        <label htmlFor="totalBudget">
-                            <DollarSign size={14} /> Total Budget (₹) *
+                        <label htmlFor="totalBudget"> Total Budget (₹) *
                         </label>
                         <input
                             id="totalBudget"
