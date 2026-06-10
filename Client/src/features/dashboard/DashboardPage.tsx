@@ -91,9 +91,6 @@ export default function DashboardPage() {
                         }
                     </p>
                 </div>
-                <div className="dashboard-hero-icon">
-                    <Sparkles size={48} />
-                </div>
             </section>
 
             {/* ── Quick Actions ── */}
