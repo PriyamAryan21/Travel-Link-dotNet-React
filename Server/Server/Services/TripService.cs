@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Server.Common;
 using Server.Data;
 using Server.DTOs.Trip;
@@ -28,8 +28,8 @@ namespace Server.Services
                 CreatedByUserId = userId,
                 Name = dto.Name,
                 Destination = dto.Destination,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
+                StartDate = dto.StartDate.ToUniversalTime(),
+                EndDate = dto.EndDate.ToUniversalTime(),
                 CoverImageUrl = dto.CoverImageUrl
             };
 

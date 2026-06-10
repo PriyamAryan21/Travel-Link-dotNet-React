@@ -44,7 +44,7 @@ namespace Server.Services
                     Description = dto.Description?.Trim(),
                     Amount = dto.Amount,
                     Category = string.IsNullOrWhiteSpace(dto.Category) ? "General" : dto.Category.Trim(),
-                    Date = dto.Date,
+                    Date = dto.Date.ToUniversalTime(),
                     PaidByUserId = userId,
                     GroupId = dto.GroupId,
                 };

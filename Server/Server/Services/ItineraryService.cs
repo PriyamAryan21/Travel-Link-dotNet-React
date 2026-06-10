@@ -877,7 +877,7 @@ Respond with ONLY this JSON shape:
             var itinerary = new GeneratedItinerary
             {
                 ItineraryRequestId = request.Id,
-                GeneratedAt = DateTime.Now,
+                GeneratedAt = DateTime.UtcNow,
                 DroppedSuggestionsJson = droppedJson,
                 TotalDays = daysArr.GetArrayLength(),
             };
@@ -896,7 +896,7 @@ Respond with ONLY this JSON shape:
                 {
                     ItineraryId = itinerary.Id,
                     DayNumber = dayEl.TryGetProperty("day_number", out var dn) ? dn.GetInt32() : dayCounter,
-                    Date = dayEl.TryGetProperty("date", out var dt) ? DateTime.Parse(dt.GetString()!) : request.Trip.StartDate.AddDays(dayCounter - 1),
+                    Date = dayEl.TryGetProperty("date", out var dt) ? DateTime.Parse(dt.GetString()!).ToUniversalTime() : request.Trip.StartDate.AddDays(dayCounter - 1).ToUniversalTime(),
                     Title = dayTitle,
                     WeatherNote = dayEl.TryGetProperty("weather_note", out var wn) ? wn.GetString() : null
                 };
