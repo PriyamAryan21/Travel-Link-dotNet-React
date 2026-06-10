@@ -674,4 +674,5 @@
 
 .spin {
     animation: spin 0.8s linear infinite;
+    transform-origin: center;
 }
