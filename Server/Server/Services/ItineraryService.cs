@@ -174,24 +174,26 @@ namespace Server.Services
             if (!isAdmin) return ServiceResult<ItineraryResultDto>.Fail("Only group admins can generate the itinerary.");
 
             bool replacedExisting = false;
-            if(request.Status == "Generated")
-            {
-                var existing = await _db.GeneratedItineraries
-                    .Include(g => g.Days)
-                    .ThenInclude(d => d.Items)
-                    .FirstOrDefaultAsync(g => g.ItineraryRequestId == requestId);
+            
+            var existing = await _db.GeneratedItineraries
+                .Include(g => g.Days)
+                .ThenInclude(d => d.Items)
+                .FirstOrDefaultAsync(g => g.ItineraryRequestId == requestId);
 
-                if(existing != null)
+            if(existing != null)
+            {
+                foreach(var day in existing.Days)
                 {
-                    foreach(var day in existing.Days)
-                    {
-                        _db.ItineraryItems.RemoveRange(day.Items);
-                    }
-                    _db.ItineraryDays.RemoveRange(existing.Days);
-                    _db.GeneratedItineraries.Remove(existing);
-                    await _db.SaveChangesAsync();
+                    _db.ItineraryItems.RemoveRange(day.Items);
                 }
+                _db.ItineraryDays.RemoveRange(existing.Days);
+                _db.GeneratedItineraries.Remove(existing);
+                await _db.SaveChangesAsync();
                 replacedExisting = true;
+            }
+            
+            if (request.Status == "Generated")
+            {
                 request.Status = "Open";
                 await _db.SaveChangesAsync();
             }
@@ -201,9 +203,12 @@ namespace Server.Services
             try
             {
                 await RunGenerationAsync(request, dto.Note);
+                _db.ChangeTracker.Clear();
             }catch(Exception ex)
             {
+                _db.ChangeTracker.Clear();
                 request.Status = "Open";
+                _db.ItineraryRequests.Update(request);
                 await _db.SaveChangesAsync();
                 return ServiceResult<ItineraryResultDto>.Fail(ex.Message);
             }
@@ -568,9 +573,17 @@ namespace Server.Services
                 UserId = userId
             };
 
-            _db.SuggestionVotes.Add(vote);
-            await _db.SaveChangesAsync();
-            return ServiceResult<bool>.Ok(true);
+            try
+            {
+                _db.SuggestionVotes.Add(vote);
+                await _db.SaveChangesAsync();
+                return ServiceResult<bool>.Ok(true);
+            }
+            catch (Exception ex)
+            {
+                _db.ChangeTracker.Clear();
+                return ServiceResult<bool>.Fail("Vote could not be processed due to a concurrent update or error.");
+            }
         }
 
         public async Task<ServiceResult<bool>> DeleteItineraryRequestAsync(Guid userId, Guid requestId)

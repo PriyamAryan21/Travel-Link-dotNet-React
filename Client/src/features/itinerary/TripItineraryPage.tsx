@@ -21,6 +21,7 @@ export default function TripItineraryPage() {
     const [suggestions, setSuggestions] = useState<SuggestionDto[]>([]);
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState(false);
+    const [votingIds, setVotingIds] = useState<Set<string>>(new Set());
     const [showAddModal, setShowAddModal] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [confirmConfig, setConfirmConfig] = useState<{
@@ -190,6 +191,14 @@ export default function TripItineraryPage() {
 
 
     const handleVote = async (suggestionId: string) => {
+        if (votingIds.has(suggestionId)) return;
+        
+        setVotingIds(prev => {
+            const newSet = new Set(prev);
+            newSet.add(suggestionId);
+            return newSet;
+        });
+
         // Optimistic UI
         setSuggestions(prev => prev.map(s => {
             if (s.id === suggestionId) {
@@ -203,6 +212,12 @@ export default function TripItineraryPage() {
             await itineraryService.toggleVote(suggestionId);
         } catch {
             loadDashboard(); // Revert on failure
+        } finally {
+            setVotingIds(prev => {
+                const newSet = new Set(prev);
+                newSet.delete(suggestionId);
+                return newSet;
+            });
         }
     };
 
@@ -492,8 +507,14 @@ export default function TripItineraryPage() {
                                     <button
                                         className={`vote-btn ${s.hasCurrentUserVoted ? 'voted' : ''}`}
                                         onClick={() => handleVote(s.id)}
+                                        disabled={votingIds.has(s.id)}
+                                        style={votingIds.has(s.id) ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
                                     >
-                                        <ThumbsUp size={18} className={s.hasCurrentUserVoted ? 'fill-current' : ''} />
+                                        {votingIds.has(s.id) ? (
+                                            <Loader2 size={18} className="spin" />
+                                        ) : (
+                                            <ThumbsUp size={18} className={s.hasCurrentUserVoted ? 'fill-current' : ''} />
+                                        )}
                                         <span>{s.voteCount}</span>
                                     </button>
 
