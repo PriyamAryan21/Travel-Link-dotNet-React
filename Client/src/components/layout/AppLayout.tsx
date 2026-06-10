@@ -58,7 +58,6 @@ function ThemeToggle() {
 function UserAvatar({ size = 36 }: { size?: number }) {
     const { user } = useAuth();
     const initial = user?.name?.charAt(0).toUpperCase() || 'U';
-    console.log(user);
     if (user?.imageUrl) {
         return (
             <img

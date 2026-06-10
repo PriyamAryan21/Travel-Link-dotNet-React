@@ -274,7 +274,6 @@ export default function TripItineraryPage() {
     const isGenerating = statusData.status === "Generating";
     const progressPct = statusData.totalSuggestions > 0
         ? (statusData.approvedSuggestions / statusData.totalSuggestions) * 100 : 0;
-    console.log("Admin: ", isAdmin);
     const totalDays = Math.max(1,
         Math.ceil((new Date(statusData.endDate).getTime() - new Date(statusData.startDate).getTime()) / (1000 * 60 * 60 * 24)) + 1
     );
