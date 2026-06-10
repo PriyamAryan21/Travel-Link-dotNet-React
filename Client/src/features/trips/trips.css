@@ -275,16 +275,7 @@ input[type="date"].input-field {
 }
 
 /* ── Spinner Animation ── */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
 
-.spin {
-    animation: spin 1s linear infinite;
-    transform-origin: center;
-}
 
 /* ── Fade In (for modal overlay) ── */
 @keyframes fadeIn {

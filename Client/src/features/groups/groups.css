@@ -665,14 +665,4 @@
     padding: 1rem 0;
 }
 
-/* ── Spin animation (for Loader2) ── */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spin {
-    animation: spin 0.8s linear infinite;
-    transform-origin: center;
-}
+/* ── Spin animation (for Loader2) ── */

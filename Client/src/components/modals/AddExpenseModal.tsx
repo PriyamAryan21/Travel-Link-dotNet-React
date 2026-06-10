@@ -46,12 +46,16 @@ export default function AddExpenseModal({
     const [exactAmounts, setExactAmounts] = useState<Record<string, string>>({});
     const [percentages, setPercentages] = useState<Record<string, string>>({});
     const [submitting, setSubmitting] = useState(false);
+    const [isFriendsLoading, setIsFriendsLoading] = useState(true);
 
     // Fetch initial data
     useEffect(() => {
         groupService.getMyGroups().then(setGroups).catch(() => { });
 
-        friendService.getFriends().then(setFriends).catch(() => { });
+        friendService.getFriends()
+            .then(setFriends)
+            .catch(() => { })
+            .finally(() => setIsFriendsLoading(false));
     }, [preselectedGroupId]);
 
     // Fetch members when group changes
@@ -211,8 +215,14 @@ export default function AddExpenseModal({
                     {activeTab === 'personal' && (
                         <div className="form-group">
                             <label>Split with Friend(s)</label>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                                {friends.length === 0 ? <span className="text-muted" style={{ fontSize: '0.8rem' }}>You have no friends added yet.</span> : null}
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
+                                {isFriendsLoading ? (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                                        <Loader2 size={14} className="spin" /> Loading friends...
+                                    </div>
+                                ) : friends.length === 0 ? (
+                                    <span className="text-muted" style={{ fontSize: '0.8rem' }}>You have no friends added yet.</span>
+                                ) : null}
                                 {friends.map(f => (
                                     <div
                                         key={f.userId}

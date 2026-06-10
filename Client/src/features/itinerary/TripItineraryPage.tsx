@@ -192,7 +192,7 @@ export default function TripItineraryPage() {
 
     const handleVote = async (suggestionId: string) => {
         if (votingIds.has(suggestionId)) return;
-        
+
         setVotingIds(prev => {
             const newSet = new Set(prev);
             newSet.add(suggestionId);
@@ -359,8 +359,6 @@ export default function TripItineraryPage() {
                 <div className="itin-actions">
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
 
-                        {/* ── TOP ROW: Generate, Auto Generate, Info ── */}
-                        {/* ── TOP ROW: Generate, Auto Generate, Info ── */}
                         <div className="itin-actions-top-row" style={{ display: 'flex', gap: '0.75rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
                             {isAdmin && (isOpen || isGenerating || isGenerated) && (
                                 <button
