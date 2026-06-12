@@ -150,7 +150,7 @@ export default function ExpensesPage() {
             <div className="expenses-list">
                 {loading ? (
                     [1, 2, 3].map(i => (
-                        <div key={i} className="glass-card expense-card skeleton" style={{ height: '100px' }} />
+                        <div key={i} className="glass-card expense-card skeleton skeleton-card" />
                     ))
                 ) : displayedExpenses.length > 0 ? (
                     displayedExpenses.map(expense => {
@@ -276,24 +276,24 @@ export default function ExpensesPage() {
             {/* ── Delete Confirm Modal ── */}
             {deleteModalExpenseId && (
                 <div className="modal-overlay" onClick={() => setDeleteModalExpenseId(null)}>
-                    <div className="modal-content glass-card" onClick={e => e.stopPropagation()} style={{ maxWidth: '400px', textAlign: 'center', padding: '2rem' }}>
-                        <div style={{ display: 'inline-flex', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '50%', color: 'var(--color-danger)', marginBottom: '1rem' }}>
+                    <div className="modal-content glass-card delete-modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="delete-modal-icon-wrapper">
                             <AlertTriangle size={32} />
                         </div>
-                        <h2 style={{ marginBottom: '0.5rem', color: 'var(--color-text)' }}>Delete Expense?</h2>
-                        <p className="text-muted" style={{ marginBottom: '1.75rem', fontSize: '0.95rem', lineHeight: 1.5 }}>
+                        <h2 className="delete-modal-title">Delete Expense?</h2>
+                        <p className="delete-modal-text">
                             Are you sure you want to delete this expense? This will remove the transaction for everyone involved.
                         </p>
-                        <div style={{ display: 'flex', gap: '1rem' }}>
+                        <div className="delete-modal-actions">
                             <button 
+                                className="delete-modal-btn-cancel"
                                 onClick={() => setDeleteModalExpenseId(null)} 
-                                style={{ flex: 1, padding: '0.75rem', borderRadius: '0.75rem', background: 'var(--glass-bg)', color: 'var(--color-text)', border: '1px solid var(--glass-border)', cursor: 'pointer', fontWeight: 600 }}
                             >
                                 Cancel
                             </button>
                             <button 
+                                className="delete-modal-btn-confirm"
                                 onClick={confirmDelete} 
-                                style={{ flex: 1, padding: '0.75rem', borderRadius: '0.75rem', background: 'var(--color-danger)', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 600 }}
                             >
                                 Delete
                             </button>

@@ -172,6 +172,12 @@ namespace Server.Controllers
             if (!string.IsNullOrEmpty(user.ImageUrl)) await _imageService.DeleteImageAsync(user.ImageUrl);
 
             var response = await _imageService.UploadImageAsync(file, "users");
+            
+            if (!response.Success) 
+            {
+                return BadRequest(response);
+            }
+
             user.ImageUrl = response.Data;
             await _db.SaveChangesAsync();
             var result = new ServiceResult<object> { Data = new { imageUrl = user.ImageUrl } };

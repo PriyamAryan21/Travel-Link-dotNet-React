@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
@@ -93,6 +93,12 @@ namespace Server.Controllers
             if (!string.IsNullOrEmpty(group.CoverImageUrl)) await _imageService.DeleteImageAsync(group.CoverImageUrl);
 
             var response = await _imageService.UploadImageAsync(file, "groups");
+            
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
             group.CoverImageUrl = response.Data;
             await _db.SaveChangesAsync();
             return Ok(new {coverImageUrl = group.CoverImageUrl });    

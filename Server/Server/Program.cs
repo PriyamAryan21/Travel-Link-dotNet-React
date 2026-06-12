@@ -113,7 +113,7 @@ builder.Services.AddRateLimiter(options =>
     {
         context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
 
-        await context.HttpContext.Response.WriteAsync("You have reached the limit. A maximum of 1 itinerary generation per 15 minutes is allowed.", cancellationToken: token);
+        await context.HttpContext.Response.WriteAsync("Limit exceeded. Kindly wait for 15 minutes", cancellationToken: token);
     };
 });
 

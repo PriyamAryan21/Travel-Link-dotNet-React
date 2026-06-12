@@ -315,3 +315,90 @@
     color: var(--text-secondary);
     border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Skeleton Card */
+.skeleton-card {
+    height: 100px;
+}
+
+/* Delete Modal */
+.delete-modal-content {
+    max-width: 400px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.delete-modal-icon-wrapper {
+    display: inline-flex;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 50%;
+    color: var(--color-danger);
+    margin-bottom: 1rem;
+}
+
+.delete-modal-title {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.delete-modal-text {
+    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.delete-modal-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.delete-modal-btn-cancel {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: var(--glass-bg);
+    color: var(--color-text);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.delete-modal-btn-confirm {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: var(--color-danger);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .expense-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .expense-card-right {
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-top: 1px solid var(--glass-border);
+        padding-top: 1rem;
+    }
+
+    .expense-delete-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.25rem;
+    }
+}

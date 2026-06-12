@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Server.Common;
 using Server.Data;
 using Server.DTOs.Groups;
@@ -145,6 +145,9 @@ namespace Server.Services
                 var group = await _db.Groups.FindAsync(groupId);
                 if (group != null)
                 {
+                    var trips = await _db.Trips.Where(t => t.GroupId == groupId).ToListAsync();
+                    _db.Trips.RemoveRange(trips);
+                    
                     _db.Groups.Remove(group);
                 }
             }
@@ -153,8 +156,10 @@ namespace Server.Services
 
             var user = await _db.Users.FindAsync(userId);
             // --- LOGGING ---
-            await _loggingService.LogGroupActivityAsync(groupId, userId, "MEMBER_LEFT", $"{user.Name} left the group");
-
+            if (remainingCount > 1)
+            {
+                await _loggingService.LogGroupActivityAsync(groupId, userId, "MEMBER_LEFT", $"{user?.Name} left the group");
+            }
 
             return ServiceResult<bool>.Ok(true);
         }

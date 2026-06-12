@@ -1,4 +1,4 @@
-﻿
+
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Server.Common;
@@ -46,6 +46,17 @@ namespace Server.Services
                 Transformation = new Transformation().Width(400).Height(400).Crop("fill").Gravity("face")
             };
             var result = await _cloudinary.UploadAsync(uploadParams);
+            
+            if (result.Error != null)
+            {
+                return ServiceResult<string>.Fail($"Cloudinary upload failed: {result.Error.Message}");
+            }
+
+            if (result.SecureUrl == null)
+            {
+                return ServiceResult<string>.Fail("Image upload failed. Please try again.");
+            }
+
             return ServiceResult<string>.Ok(result.SecureUrl.ToString());
         }
 
