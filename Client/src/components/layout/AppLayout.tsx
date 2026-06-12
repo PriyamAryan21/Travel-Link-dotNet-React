@@ -1,6 +1,8 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
+import './AppLayout.css';
 import {
     LayoutDashboard,
     Plane,
@@ -14,6 +16,7 @@ import {
     LogOut,
     Wallet,
     CalendarRange,
+    Settings,
 } from 'lucide-react';
 import NotificationBell from './NotificationBell';
 
@@ -132,6 +135,19 @@ function Sidebar() {
 
 function TopBar() {
     const location = useLocation();
+    const { logout } = useAuth();
+    const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsProfileMenuOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const getTitle = () => {
         const path = location.pathname.split('/')[1] || 'dashboard';
@@ -154,10 +170,47 @@ function TopBar() {
             {/* Right actions */}
             <div className="topbar-actions flex items-center gap-2">
                 <NotificationBell />
-                <ThemeToggle />
-                <NavLink to="/profile" className="topbar-avatar-link">
-                    <UserAvatar size={36} />
-                </NavLink>
+
+                <div className="relative" ref={menuRef}>
+                    <button
+                        onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                        className="topbar-avatar-link block focus:outline-none transition-transform hover:scale-105"
+                    >
+                        <UserAvatar size={36} />
+                    </button>
+
+                    {isProfileMenuOpen && (
+                        <div className="profile-dropdown">
+                            <NavLink
+                                to="/profile"
+                                className="profile-dropdown-item"
+                                onClick={() => setIsProfileMenuOpen(false)}
+                            >
+                                <UserCircle size={22} className="profile-dropdown-icon" />
+                                Profile
+                            </NavLink>
+                            <NavLink
+                                to="/settings"
+                                className="profile-dropdown-item"
+                                onClick={() => setIsProfileMenuOpen(false)}
+                            >
+                                <Settings size={22} className="profile-dropdown-icon" />
+                                Settings
+                            </NavLink>
+                            <div className="profile-dropdown-divider"></div>
+                            <button
+                                onClick={() => {
+                                    setIsProfileMenuOpen(false);
+                                    logout();
+                                }}
+                                className="profile-dropdown-item logout-item"
+                            >
+                                <LogOut size={22} className="profile-dropdown-icon" />
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
         </header>
     );

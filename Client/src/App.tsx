@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import LandingPage from './features/landing/LandingPage';
 import LoginPage from './features/auth/LoginPage';
 import RegisterPage from './features/auth/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -18,6 +19,7 @@ import TripItineraryPage from './features/itinerary/TripItineraryPage';
 import ItineraryResultPage from './features/itinerary/ItineraryResultPage';
 import FriendsPage from './features/friends/FriendPage';
 import ProfilePage from './features/profile/ProfilePage';
+import SettingsPage from './features/settings/SettingsPage';
 import LocationPage from './features/location/LocationPage';
 import OfflineOverlay from './components/layout/OfflineOverlay';
 
@@ -26,6 +28,7 @@ function App() {
     <ThemeProvider>
       <Routes>
         {/* Public */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
@@ -48,11 +51,12 @@ function App() {
             <Route path="/location" element={<LocationPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/profile/:userId" element={<ProfilePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
         </Route>
 
         {/* Fallback */}
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <OfflineOverlay />
     </ThemeProvider>
