@@ -258,7 +258,7 @@ export default function LandingPage() {
 
                 {/* ── Footer ─────────────────────────── */}
                 <footer className="landing-footer">
-                    © {new Date().getFullYear()} TravelLink. Crafted with ☕ and wanderlust.
+                    © {new Date().getFullYear()} TravelLink. Crafted with ☕ and wanderlust By Priyam Aryan.
                 </footer>
             </div>
         </div>
